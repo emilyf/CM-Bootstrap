@@ -8,17 +8,29 @@ Download the “modules” and the “themes” folders. From the module folder,
 
 1a.) Contrib Modules
 enable these modules:
+
 admin_menu
+
 bundle_copy
+
 color_field
+
 devel
+
 menu_attributes
+
 menu_block
+
 module_filter
+
 node_clone
+
 rabbit_hole
+
 flag
+
 blog
+
 hms field
 
 1b.) Custom Modules
