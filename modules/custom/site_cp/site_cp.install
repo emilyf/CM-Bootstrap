@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * site_cp.install
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function site_cp_schema() {
+  // Colors
+  $schema['site_cp_colors'] = array(
+    'description' => 'Stores Color Scheme Data.',
+    'fields' => array(
+      'name' => array(
+        'description' => 'The name of the variable.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'value' => array(
+        'description' => 'The value of the variable.',
+        'type' => 'text',
+        'length' => 256,
+        'unsigned' => FALSE,
+        'not null' => TRUE
+      ),
+    ),
+    'primary key' => array('name'),
+  );  
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function site_cp_uninstall() {
+  drupal_uninstall_schema('site_cp_colors');
+}

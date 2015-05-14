@@ -1,0 +1,4 @@
+name = Custom Form
+description = Customizations for Forms, Custom Form Elements, etc.
+package = CM Bootstrap
+core = 7.x

@@ -1,0 +1,89 @@
+.user-picture img {
+  max-width: 100%;
+}
+
+.user-statistics {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  background-color: red;
+  float: left;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.user-statistics:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: -10px;
+  left: -10px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid red;  
+}
+.user-statistics li {
+  display: inline-block;
+  padding: 0 30px;  
+  color: white;
+  text-align: center;
+  border-right: 1px solid black;
+}
+.user-statistics li:last-of-type {
+  border: none;
+}
+.user-statistics li .statistic {
+  font-size: 2em;
+}
+
+.user-details {
+  padding: 15px;
+}
+
+.recent-videos .field-name-field-show-vod {
+  display: inline-block;
+  width: 48%;
+  margin-right: 4%;
+}
+
+.recent-videos .field-name-field-show-vod:nth-child(even) {
+  margin-right: 0;
+}
+
+.user-grid {
+  padding: 0;
+  margin: 0;
+}
+.user-grid li {
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.flag-cf-like-show .flag {
+  position: relative;
+  display: block;
+}
+
+.flag-cf-like-show .flag:before {
+  content: '\e831';
+  font-family: 'fontello';
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  color: black;
+  position: absolute;
+  line-height: 40px;
+  text-align: center;
+}
+
+.flag-cf-like-show .flag:hover:before {
+  color: white;
+  background-color: black;
+}

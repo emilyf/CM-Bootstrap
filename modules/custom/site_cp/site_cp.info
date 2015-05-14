@@ -1,0 +1,5 @@
+name = Site Control Panel
+description = Site Control Panel
+package = CM Bootstrap
+;configure = cp/config/wrapper
+core = 7.x

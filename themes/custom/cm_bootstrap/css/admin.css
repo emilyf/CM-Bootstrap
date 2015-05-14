@@ -1,0 +1,58 @@
+.vertical-tabs-panes {
+  border: 3px solid #ff7700 !important;
+  -webkit-border-top-right-radius: 4px !important;
+  -moz-border-radius-topright: 4px !important;
+  border-top-right-radius: 4px !important;
+  -webkit-border-top-left-radius: 4px !important;
+  -moz-border-radius-topleft: 4px !important;
+  border-top-left-radius: 4px !important;
+  /*margin: 2px 0 0 300px;*/
+}
+
+.tabs-left>.tab-content {
+  padding:0;
+}
+
+.tabs-left>.nav-tabs {
+  margin: 0 10px;
+}
+
+.tabs-left>.nav-tabs>li>a, .tabs-right>.nav-tabs>li>a {
+  margin-bottom:7px;
+}
+
+.tabs-left>.nav-tabs>.active>a, 
+.tabs-left>.nav-tabs>.active>a:hover, 
+.tabs-left>.nav-tabs>.active>a:focus {
+  background:#FF7700;
+  color:#FFF;
+  border-radius: 4px;
+}
+
+.tabs-left>.nav-tabs>li>a {
+  background:#0099D9;
+  color:#FFF;
+  font-size: 1.25em;
+  border-radius: 4px;
+  /*font-family: "Maven Pro",Helvetica,Arial,sans-serif;*/
+}
+
+.tabs-left>.nav-tabs>li>a:hover {
+  transition:.3s;
+  background: #00ADF4;
+}
+
+.tabs-left>.nav-tabs>li>a .summary {
+  color:#000;
+}
+
+p.help-block {
+  background-color: #ff7700;
+  color: #ffffff;
+  /*font-family: "Maven Pro",Helvetica,Arial,sans-serif;*/
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 5px 25px 8px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,62 @@
+<?php
+/**
+ * @file
+ * Customizations for Front Pg Slider.
+ */
+ 
+//include custom_block_data_query.inc 
+module_load_include('inc', 'custom_front_pg_slider', 'custom_front_pg_slider');
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_front_pg_slider_block_info() {
+  $blocks['front_pg_slider'] = array(
+    'info' => t('custom_front_pg_slider: Front Pg Jumbotron'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );
+  
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_front_pg_slider_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'front_pg_slider':
+      //$block['subject'] = t('Header Logo');
+      $block['content'] = _front_pg_slider_data();
+    break;
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_front_pg_slider_theme($existing, $type, $theme, $path) {
+	$theme = array();
+		
+	$theme['front_pg_slider'] = array(
+		'template' => 'front-pg-slider',
+		'path' => $path . '/templates',
+	);
+	
+	return $theme;
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ * sorts nodes by weight.
+ */
+function custom_front_pg_slider_query_byWeightBlock_alter(QueryAlterableInterface $query) {
+  $query->join('weight_weights', 'node_weight', 'node.nid = node_weight.entity_id');
+  $query->orderBy('weight', 'ASC');
+}
+
+

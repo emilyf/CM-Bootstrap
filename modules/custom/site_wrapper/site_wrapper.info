@@ -1,0 +1,12 @@
+name = Site Wrapper
+description = Customizations for Header, Footer, and Other Global Site Assets.
+core = 7.x
+package = CM Bootstrap
+
+dependencies [] =
+dependencies [] =
+
+stylesheets[all][] = css/site_wrapper.css
+scripts[] = js/site_wrapper.js
+
+

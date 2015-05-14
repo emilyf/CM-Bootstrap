@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * Implements hook_element_info().
+ */
+function custom_form_element_info() {
+  $elements['spectrum_field'] = array(
+    //'#default_value' => '',
+    '#input' => TRUE,
+    '#process' => array('custom_form_spectrum_element_process'),
+    '#theme' => array('spectrum_field'),
+    '#theme_wrappers' => array('form_element'),
+    '#tree' => TRUE,
+    //'#value_callback' => 'custom_form_spectrum_element_value_callback',
+  );
+  
+  $elements['cf_date_time_picker'] = array(
+    '#input' => TRUE,
+    '#process' => array('custom_form_cf_date_time_picker_element_process'),
+    '#theme' => array('cf_date_time_picker'),
+    '#theme_wrappers' => array('form_element'),
+    '#tree' => TRUE,
+  );
+  return $elements;
+}
+
+/**
+ * Process function for spectrum.
+ */
+function custom_form_spectrum_element_process($element, &$form_state, $complete_form) {
+  $element['#tree'] = TRUE;
+  
+  $element['spectrum_field'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Select Color'),
+    '#size' => 10,
+    '#default_value' => $element['#default_value'],   
+    //'#title_display' => 'invisible',
+    '#attributes' => array(
+      'class' => array(
+        'cf-spectrum'
+      ),
+    ),
+    '#theme_wrappers' => array(),
+    '#attached' => array(
+      'css' => array(
+        drupal_get_path('module', 'custom_form') . '/js/libraries/bgrins-spectrum/spectrum.css',
+      ),
+      'js' => array(
+        drupal_get_path('module', 'custom_form') . '/js/libraries/bgrins-spectrum/spectrum.js',
+      ),
+    ),
+  );
+  
+  return $element;
+}
+
+/**
+ * Process function for datetimepicker.
+ */
+function custom_form_cf_date_time_picker_element_process($element, &$form_state, $complete_form) {
+  $element['#tree'] = TRUE;
+  
+  $element['cf_date_time_picker'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Test'),
+    '#size' => 10,
+    '#default_value' => $element['#default_value'],   
+    //'#title_display' => 'invisible',
+    '#attributes' => array(
+      'class' => array(
+        'datetimepicker'
+      ),
+    ),
+    '#theme_wrappers' => array(),
+    '#attached' => array(
+      'css' => array(
+        //drupal_get_path('module', 'custom_form') . '/js/libraries/bgrins-spectrum/spectrum.css',
+      ),
+      'js' => array(
+        //drupal_get_path('module', 'custom_form') . '/js/libraries/bgrins-spectrum/spectrum.js',
+      ),
+    ),
+  );
+  
+  return $element;
+}
+
+/*function custom_form_spectrum_element_value_callback($element, $input = FALSE, &$form_state) {
+  return;
+}*/
+
+/**
+ * Implements hook_theme().
+ * 
+ */
+function custom_form_theme($existing, $type, $theme, $path) {
+  return array(
+    'spectrum_field' => array(
+      'render element' => 'element',
+      'template' => 'spectrum-field',
+      'path' => $path . '/templates',
+    ),
+    
+    'cf_date_time_picker' => array(
+      'render element' => 'element',
+      'template' => 'cf-date-time-picker',
+      'path' => $path . '/templates',
+    ),
+  );
+}

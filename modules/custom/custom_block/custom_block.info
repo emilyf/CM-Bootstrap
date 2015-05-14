@@ -1,0 +1,7 @@
+name = Custom Block
+description = Customizations for Blocks.
+core = 7.x
+package = CM Bootstrap
+
+;scripts[] = js/custom_block.js
+;stylesheets[all][] = css/custom_block.css

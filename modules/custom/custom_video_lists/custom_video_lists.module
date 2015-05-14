@@ -1,0 +1,209 @@
+<?php
+/**
+ * @file
+ * Customizations for Blocks.
+ */
+ 
+//include custom_block_data_query.inc 
+module_load_include('inc', 'custom_video_lists', 'custom_video_lists');
+module_load_include('inc', 'custom_video_lists', 'blocks/cvl_block_show_series_carousels');
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_video_lists_block_info() {
+  /*$blocks['cvl_partner_carousels'] = array(
+    'info' => t('custom_video_lists: Partners Carousel'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );*/
+  
+  $blocks['cvl_block_carousels'] = array(
+    'info' => t('custom_video_lists: Block Carousel'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );
+  
+  $blocks['cvl_block_series_carousels'] = array(
+    'info' => t('custom_video_lists: Block Series Carousel'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );
+  
+  $blocks['cvl_block_show_series_carousels'] = array(
+    'info' => t('custom_video_lists: Block "Show" TPL Series Carousel'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );
+    
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ * @see custom_block_data_query.inc
+ */
+function custom_video_lists_block_view($delta = '') {
+  $block = array();
+  
+  // Get node id of current pg.
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $node = node_load( arg(1) );
+    //dpm($node);
+    
+    $cvl_bsc_nid = $node->nid;
+    
+    if (isset($node->og_group_ref['und'][0]['target_id'])) {
+      $cvl_bssc_nid = $node->og_group_ref['und'][0]['target_id'];
+    }
+    else {
+      $cvl_bssc_nid = '';
+    }
+        
+    $content_types = array(
+      'cm_show',
+      'cm_project',
+      'partner',
+      'page',
+    );
+    
+    // Custom Video List block        
+    /*if (isset($node->field_custom_video_list['und']) && in_array($node->type, $content_types)) {
+      $nid = $node->field_custom_video_list['und'][0]['target_id'];
+    }*/
+  }
+  
+  
+  
+  
+  switch ($delta) {
+    /*case 'cvl_partner_carousels':
+      //$block['subject'] = t('Learn Videos Two Columns');
+      $block['content'] = _custom_video_lists_partner_carousels();
+      break;*/
+      
+    case 'cvl_block_carousels':
+      //$block['subject'] = t('Learn Videos Two Columns');
+      $block['content'] = _custom_video_lists_block_carousels($node->nid);
+      break;
+      
+    case 'cvl_block_series_carousels':
+      //$block['subject'] = t('cvl_block_series_carousels');
+      $block['content'] = _custom_video_lists_block_series_carousels($cvl_bsc_nid);
+      break;
+    
+    //
+    case 'cvl_block_show_series_carousels':
+      $block['content'] = _custom_video_lists_block_series_carousels($cvl_bssc_nid);
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_preprocess_node(&$variables).
+ */
+function custom_video_lists_preprocess_node(&$variables) {
+    
+  switch($variables['type']) {
+    // 'show'
+    case 'cm_show':
+    // 'series'
+    case 'cm_project':
+    case 'partner':
+    case 'page':
+    
+      //dpm($variables);
+      
+      if (isset($variables['field_custom_video_list']['und'])) {
+        $field_custom_video_list_nid = $variables['field_custom_video_list']['und'][0]['target_id'];
+        //dpm($field_custom_video_list_nid);
+      }
+      
+      
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_video_lists_theme($existing, $type, $theme, $path) {
+	$theme = array();
+		
+	/*$theme['cvl_partner_carousels'] = array(
+		'template' => 'cvl-partner-carousels',
+		'path' => $path . '/templates',
+	);*/
+	
+	$theme['cvl_block_carousels'] = array(
+		'template' => 'cvl-block-carousels',
+		'path' => $path . '/templates',
+	);
+	
+	$theme['cvl_block_series_carousels'] = array(
+		'template' => 'cvl-block-series-carousels',
+		'path' => $path . '/templates',
+	);
+	
+	/*$theme['cvl_block_series_show_carousels'] = array(
+		'template' => 'cvl-block-series-carousels',
+		'path' => $path . '/templates',
+	);*/
+		
+	return $theme;
+}
+
+/** 
+ * Implements hook_entity_info_alter(). 
+ * The first attribute in the array defines an arbitrary label for the view mode machine name.
+ * 'custom settings' => TRUE displays the view mode as a default at the top of the display modes settings screen
+ */
+/*function custom_video_lists_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes'] += array(
+    'two_column_list' => array(
+      'label' => t('Two Column List'),
+      'custom settings' => FALSE,
+    ),  
+  );
+}*/
+
+/**
+ * Implements hook_block_list_alter(&$blocks).
+ * Set/unset blocks based on content type.
+ */
+function custom_video_lists_block_list_alter(&$blocks) {
+     
+  $block_array = array();
+  foreach ($blocks as $block) {
+    if($block->module == 'custom_video_lists') {
+      $block_array[] = $block;
+    }
+  }
+  
+  $content_types = array(
+    //'cm_show',
+    'cm_project',
+    //'partner',
+    //'page',
+  );
+  
+  // Get node id of current pg.
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $node = node_load(arg(1));
+    
+    if (!in_array($node->type, $content_types)) {
+      //unset($blocks[1267]);
+    }
+    
+  }
+  
+  
+  //dpm($block_array);
+  
+  
+  //dpm($blocks); 
+  
+  
+  
+}

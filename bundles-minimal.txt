@@ -1,0 +1,4888 @@
+$data = array(
+  'bundles' => array(
+    'archive_content_type' => (object) array(
+      'type' => 'archive_content_type',
+      'name' => 'Archive (Content Type)',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => 'Create archive pgs for specific content types.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'archive_content_type',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'archive_node_ref' => (object) array(
+      'type' => 'archive_node_ref',
+      'name' => 'Archive (Node Ref)',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'archive_node_ref',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'article' => (object) array(
+      'type' => 'article',
+      'name' => 'Article',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'article',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'blog' => (object) array(
+      'type' => 'blog',
+      'name' => 'Blog entry',
+      'base' => 'blog',
+      'module' => 'blog',
+      'description' => 'Use for multi-user blogs. Every user gets a personal blog.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '0',
+      'modified' => '1',
+      'locked' => '1',
+      'disabled' => FALSE,
+      'orig_type' => 'blog',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'color_scheme' => (object) array(
+      'type' => 'color_scheme',
+      'name' => 'Color Scheme',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'color_scheme',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'custom_video_list' => (object) array(
+      'type' => 'custom_video_list',
+      'name' => 'Custom Video List',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'custom_video_list',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'genre' => (object) array(
+      'type' => 'genre',
+      'name' => 'Genre',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'genre',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'page' => (object) array(
+      'type' => 'page',
+      'name' => 'Basic page',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => 'Use <em>basic pages</em> for your static content, such as an \'About us\' page.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'page',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'partner' => (object) array(
+      'type' => 'partner',
+      'name' => 'Partner',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'partner',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'slider' => (object) array(
+      'type' => 'slider',
+      'name' => 'Slider',
+      'base' => 'node_content',
+      'module' => 'retn_slider_content_type',
+      'description' => 'VCAM Slideshow',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '0',
+      'modified' => '1',
+      'locked' => '1',
+      'disabled' => '0',
+      'orig_type' => 'slider',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+    'video_grid' => (object) array(
+      'type' => 'video_grid',
+      'name' => 'Video Grid',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => '',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'video_grid',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+  ),
+  'fields' => array(
+    'body' => array(
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'translatable' => '0',
+      'settings' => array(),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_body' => array(
+                'value' => 'body_value',
+                'summary' => 'body_summary',
+                'format' => 'body_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_body' => array(
+                'value' => 'body_value',
+                'summary' => 'body_summary',
+                'format' => 'body_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'body',
+      'type' => 'text_with_summary',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'summary' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+          1 => 'article',
+          2 => 'blog',
+          3 => 'archive_content_type',
+          4 => 'archive_node_ref',
+          5 => 'genre',
+          6 => 'partner',
+        ),
+      ),
+    ),
+    'field_archive_content_type' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'allowed_values' => array(
+          'cm_show' => 'Show',
+          'blog' => 'Blog',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_archive_content_type' => array(
+                'value' => 'field_archive_content_type_value',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_archive_content_type' => array(
+                'value' => 'field_archive_content_type_value',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_archive_content_type',
+      'type' => 'list_text',
+      'module' => 'list',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'archive_content_type',
+        ),
+      ),
+    ),
+    'field_archive_more_copy' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_archive_more_copy' => array(
+                'value' => 'field_archive_more_copy_value',
+                'format' => 'field_archive_more_copy_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_archive_more_copy' => array(
+                'value' => 'field_archive_more_copy_value',
+                'format' => 'field_archive_more_copy_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_archive_more_copy',
+      'type' => 'text',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'archive_content_type',
+          1 => 'archive_node_ref',
+        ),
+      ),
+    ),
+    'field_archive_node_ref' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'page' => 'page',
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_archive_node_ref' => array(
+                'target_id' => 'field_archive_node_ref_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_archive_node_ref' => array(
+                'target_id' => 'field_archive_node_ref_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_archive_node_ref',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'archive_node_ref',
+        ),
+      ),
+    ),
+    'field_background_color' => array(
+      'entity_types' => array(),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'settings' => array(
+        'allowed_values' => array(
+          'red' => 'red',
+          'green' => 'green',
+          'blue' => 'blue',
+          'orange' => 'orange',
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_background_color' => array(
+                'value' => 'field_background_color_value',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_background_color' => array(
+                'value' => 'field_background_color_value',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'field_name' => 'field_background_color',
+      'type' => 'list_text',
+      'module' => 'list',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_blog_image' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => '2070',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_blog_image' => array(
+                'fid' => 'field_blog_image_fid',
+                'alt' => 'field_blog_image_alt',
+                'title' => 'field_blog_image_title',
+                'width' => 'field_blog_image_width',
+                'height' => 'field_blog_image_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_blog_image' => array(
+                'fid' => 'field_blog_image_fid',
+                'alt' => 'field_blog_image_alt',
+                'title' => 'field_blog_image_title',
+                'width' => 'field_blog_image_width',
+                'height' => 'field_blog_image_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_blog_image',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'blog',
+        ),
+      ),
+    ),
+    'field_cf_menu_trigger' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_cf_menu_trigger' => array(
+                'rgb' => 'field_cf_menu_trigger_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_cf_menu_trigger' => array(
+                'rgb' => 'field_cf_menu_trigger_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_cf_menu_trigger',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_cf_nav_bg_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_cf_nav_bg_color' => array(
+                'rgb' => 'field_cf_nav_bg_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_cf_nav_bg_color' => array(
+                'rgb' => 'field_cf_nav_bg_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_cf_nav_bg_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_column_1_description' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_column_1_description' => array(
+                'value' => 'field_column_1_description_value',
+                'format' => 'field_column_1_description_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_column_1_description' => array(
+                'value' => 'field_column_1_description_value',
+                'format' => 'field_column_1_description_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_column_1_description',
+      'type' => 'text',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'video_grid',
+        ),
+      ),
+    ),
+    'field_column_1_shows' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'cm_show' => 'cm_show',
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_column_1_shows' => array(
+                'target_id' => 'field_column_1_shows_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_column_1_shows' => array(
+                'target_id' => 'field_column_1_shows_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_column_1_shows',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '3',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'video_grid',
+        ),
+      ),
+    ),
+    'field_custom_video_description' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_custom_video_description' => array(
+                'value' => 'field_custom_video_description_value',
+                'format' => 'field_custom_video_description_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_custom_video_description' => array(
+                'value' => 'field_custom_video_description_value',
+                'format' => 'field_custom_video_description_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_custom_video_description',
+      'type' => 'text_long',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'custom_video_list',
+        ),
+      ),
+    ),
+    'field_custom_video_list' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'custom_video_list' => 'custom_video_list',
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_custom_video_list' => array(
+                'target_id' => 'field_custom_video_list_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_custom_video_list' => array(
+                'target_id' => 'field_custom_video_list_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_custom_video_list',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '5',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+          1 => 'cm_project',
+          2 => 'cm_show',
+          3 => 'genre',
+          4 => 'partner',
+        ),
+      ),
+    ),
+    'field_footer_background_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+        'profile2_private' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_footer_background_color' => array(
+                'rgb' => 'field_footer_background_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_footer_background_color' => array(
+                'rgb' => 'field_footer_background_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_footer_background_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_h2_text_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+        'default_colors' => '#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46
+#42D692,#16A765,#7BD148,#B3DC6C,#FBE983
+#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF
+#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2
+#CD74E6,#A47AE2
+        ',
+        'profile2_private' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_h2_text_color' => array(
+                'rgb' => 'field_h2_text_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_h2_text_color' => array(
+                'rgb' => 'field_h2_text_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_h2_text_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_image' => array(
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_image' => array(
+                'fid' => 'field_image_fid',
+                'alt' => 'field_image_alt',
+                'title' => 'field_image_title',
+                'width' => 'field_image_width',
+                'height' => 'field_image_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_image' => array(
+                'fid' => 'field_image_fid',
+                'alt' => 'field_image_alt',
+                'title' => 'field_image_title',
+                'width' => 'field_image_width',
+                'height' => 'field_image_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'entity_types' => array(),
+      'translatable' => '0',
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'field_name' => 'field_image',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'article',
+        ),
+      ),
+    ),
+    'field_jpanel_bg_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jpanel_bg_color' => array(
+                'rgb' => 'field_jpanel_bg_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jpanel_bg_color' => array(
+                'rgb' => 'field_jpanel_bg_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jpanel_bg_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jpanel_child_item_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jpanel_child_item_color' => array(
+                'rgb' => 'field_jpanel_child_item_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jpanel_child_item_color' => array(
+                'rgb' => 'field_jpanel_child_item_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jpanel_child_item_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jpanel_parent_item_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jpanel_parent_item_color' => array(
+                'rgb' => 'field_jpanel_parent_item_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jpanel_parent_item_color' => array(
+                'rgb' => 'field_jpanel_parent_item_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jpanel_parent_item_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jumbotron_arrow_bg_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jumbotron_arrow_bg_color' => array(
+                'rgb' => 'field_jumbotron_arrow_bg_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jumbotron_arrow_bg_color' => array(
+                'rgb' => 'field_jumbotron_arrow_bg_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jumbotron_arrow_bg_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jumbotron_arrow_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jumbotron_arrow_color' => array(
+                'rgb' => 'field_jumbotron_arrow_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jumbotron_arrow_color' => array(
+                'rgb' => 'field_jumbotron_arrow_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jumbotron_arrow_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jumbotron_arrow_hov_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jumbotron_arrow_hov_color' => array(
+                'rgb' => 'field_jumbotron_arrow_hov_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jumbotron_arrow_hov_color' => array(
+                'rgb' => 'field_jumbotron_arrow_hov_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jumbotron_arrow_hov_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_jumbotron_overlay' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_jumbotron_overlay' => array(
+                'rgb' => 'field_jumbotron_overlay_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_jumbotron_overlay' => array(
+                'rgb' => 'field_jumbotron_overlay_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_jumbotron_overlay',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_main_image' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => '2121',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_main_image' => array(
+                'fid' => 'field_main_image_fid',
+                'alt' => 'field_main_image_alt',
+                'title' => 'field_main_image_title',
+                'width' => 'field_main_image_width',
+                'height' => 'field_main_image_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_main_image' => array(
+                'fid' => 'field_main_image_fid',
+                'alt' => 'field_main_image_alt',
+                'title' => 'field_main_image_title',
+                'width' => 'field_main_image_width',
+                'height' => 'field_main_image_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_main_image',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+        ),
+      ),
+    ),
+    'field_partner_logo_large' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_partner_logo_large' => array(
+                'fid' => 'field_partner_logo_large_fid',
+                'alt' => 'field_partner_logo_large_alt',
+                'title' => 'field_partner_logo_large_title',
+                'width' => 'field_partner_logo_large_width',
+                'height' => 'field_partner_logo_large_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_partner_logo_large' => array(
+                'fid' => 'field_partner_logo_large_fid',
+                'alt' => 'field_partner_logo_large_alt',
+                'title' => 'field_partner_logo_large_title',
+                'width' => 'field_partner_logo_large_width',
+                'height' => 'field_partner_logo_large_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_partner_logo_large',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'partner',
+        ),
+      ),
+    ),
+    'field_primary_color_1' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+        'profile2_private' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_primary_color_1' => array(
+                'rgb' => 'field_primary_color_1_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_primary_color_1' => array(
+                'rgb' => 'field_primary_color_1_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_primary_color_1',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_primary_color_2' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+        'profile2_private' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_primary_color_2' => array(
+                'rgb' => 'field_primary_color_2_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_primary_color_2' => array(
+                'rgb' => 'field_primary_color_2_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_primary_color_2',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_slider_description' => array(
+      'entity_types' => array(),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'settings' => array(
+        'max_length' => '255',
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_slider_description' => array(
+                'value' => 'field_slider_description_value',
+                'format' => 'field_slider_description_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_slider_description' => array(
+                'value' => 'field_slider_description_value',
+                'format' => 'field_slider_description_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'field_name' => 'field_slider_description',
+      'type' => 'text',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_slider_link' => array(
+      'entity_types' => array(),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'profile2_private' => FALSE,
+        'title' => 'optional',
+        'title_maxlength' => 128,
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_slider_link' => array(
+                'url' => 'field_slider_link_url',
+                'title' => 'field_slider_link_title',
+                'attributes' => 'field_slider_link_attributes',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_slider_link' => array(
+                'url' => 'field_slider_link_url',
+                'title' => 'field_slider_link_title',
+                'attributes' => 'field_slider_link_attributes',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'field_name' => 'field_slider_link',
+      'type' => 'link_field',
+      'module' => 'link',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'url' => array(
+          'type' => 'varchar',
+          'length' => 2048,
+          'not null' => FALSE,
+          'sortable' => TRUE,
+        ),
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+          'sortable' => TRUE,
+        ),
+        'attributes' => array(
+          'type' => 'text',
+          'size' => 'medium',
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_slider_reference' => array(
+      'entity_types' => array(),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'cm_project' => 'cm_project',
+            'cm_show' => 'cm_show',
+            'page' => 'page',
+            'slider' => 'slider',
+            'test' => 'test',
+          ),
+        ),
+        'profile2_private' => FALSE,
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_slider_reference' => array(
+                'target_id' => 'field_slider_reference_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_slider_reference' => array(
+                'target_id' => 'field_slider_reference_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'field_name' => 'field_slider_reference',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_slideshow_image' => array(
+      'entity_types' => array(),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'settings' => array(
+        'default_image' => 0,
+        'profile2_private' => FALSE,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_slideshow_image' => array(
+                'fid' => 'field_slideshow_image_fid',
+                'alt' => 'field_slideshow_image_alt',
+                'title' => 'field_slideshow_image_title',
+                'width' => 'field_slideshow_image_width',
+                'height' => 'field_slideshow_image_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_slideshow_image' => array(
+                'fid' => 'field_slideshow_image_fid',
+                'alt' => 'field_slideshow_image_alt',
+                'title' => 'field_slideshow_image_title',
+                'width' => 'field_slideshow_image_width',
+                'height' => 'field_slideshow_image_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'field_name' => 'field_slideshow_image',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_tags' => array(
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => 0,
+          ),
+        ),
+      ),
+      'entity_types' => array(),
+      'translatable' => '0',
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_tags' => array(
+                'tid' => 'field_tags_tid',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_tags' => array(
+                'tid' => 'field_tags_tid',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'tid' => array(
+          'table' => 'taxonomy_term_data',
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_tags',
+      'type' => 'taxonomy_term_reference',
+      'module' => 'taxonomy',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'columns' => array(
+        'tid' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'article',
+          1 => 'cm_show',
+        ),
+      ),
+    ),
+    'field_teaser' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_teaser' => array(
+                'value' => 'field_teaser_value',
+                'format' => 'field_teaser_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_teaser' => array(
+                'value' => 'field_teaser_value',
+                'format' => 'field_teaser_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_teaser',
+      'type' => 'text_long',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+        ),
+      ),
+    ),
+    'field_video_grid' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'video_grid' => 'video_grid',
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_video_grid' => array(
+                'target_id' => 'field_video_grid_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_video_grid' => array(
+                'target_id' => 'field_video_grid_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_video_grid',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '3',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+          1 => 'cm_project',
+          2 => 'cm_show',
+          3 => 'genre',
+        ),
+      ),
+    ),
+    'field_video_slider_arrow_bgcolor' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_video_slider_arrow_bgcolor' => array(
+                'rgb' => 'field_video_slider_arrow_bgcolor_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_video_slider_arrow_bgcolor' => array(
+                'rgb' => 'field_video_slider_arrow_bgcolor_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_video_slider_arrow_bgcolor',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_video_slider_hover_color' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'show_input' => 1,
+        'show_palette' => 1,
+        'palette' => '',
+        'show_palette_only' => 0,
+        'show_buttons' => 1,
+        'allow_empty' => 0,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_video_slider_hover_color' => array(
+                'rgb' => 'field_video_slider_hover_color_rgb',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_video_slider_hover_color' => array(
+                'rgb' => 'field_video_slider_hover_color_rgb',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'rgb' => array(
+          0 => 'rgb',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_video_slider_hover_color',
+      'type' => 'color_field_rgb',
+      'module' => 'color_field',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'rgb' => array(
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'color_scheme',
+        ),
+      ),
+    ),
+    'field_videos_to_highlight' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'cm_project' => 'cm_project',
+            'cm_show' => 'cm_show',
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_videos_to_highlight' => array(
+                'target_id' => 'field_videos_to_highlight_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_videos_to_highlight' => array(
+                'target_id' => 'field_videos_to_highlight_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'table' => 'node',
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_videos_to_highlight',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'custom_video_list',
+        ),
+      ),
+    ),
+  ),
+  'instances' => array(
+    'body' => array(
+      0 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '5',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'archive_content_type',
+        'deleted' => '0',
+      ),
+      1 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '3',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'archive_node_ref',
+        'deleted' => '0',
+      ),
+      2 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => -4,
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'article',
+        'deleted' => '0',
+      ),
+      3 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '3',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'blog',
+        'deleted' => '0',
+      ),
+      4 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '6',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'genre',
+        'deleted' => '0',
+      ),
+      5 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '4',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '0',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+      6 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'text_textarea_with_summary',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'rows' => '20',
+            'summary_rows' => 5,
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '1',
+          'display_summary' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '4',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'partner',
+        'deleted' => '0',
+      ),
+    ),
+    'field_archive_content_type' => array(
+      0 => array(
+        'label' => 'Content Type',
+        'widget' => array(
+          'weight' => '6',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'list_default',
+            'settings' => array(),
+            'module' => 'list',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_archive_content_type',
+        'entity_type' => 'node',
+        'bundle' => 'archive_content_type',
+        'deleted' => '0',
+      ),
+    ),
+    'field_archive_more_copy' => array(
+      0 => array(
+        'label' => 'Archive More Copy',
+        'widget' => array(
+          'weight' => '1',
+          'type' => 'text_textfield',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'size' => '60',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'linkit' => array(
+            'enable' => 0,
+            'profile' => '',
+            'button_text' => 'Search',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 2,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_archive_more_copy',
+        'entity_type' => 'node',
+        'bundle' => 'archive_content_type',
+        'deleted' => '0',
+      ),
+      1 => array(
+        'label' => 'Archive More Copy',
+        'widget' => array(
+          'weight' => '1',
+          'type' => 'text_textfield',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'size' => '60',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'linkit' => array(
+            'enable' => 0,
+            'profile' => '',
+            'button_text' => 'Search',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 2,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_archive_more_copy',
+        'entity_type' => 'node',
+        'bundle' => 'archive_node_ref',
+        'deleted' => '0',
+      ),
+    ),
+    'field_archive_node_ref' => array(
+      0 => array(
+        'label' => 'Archive Node Ref',
+        'widget' => array(
+          'weight' => '4',
+          'type' => 'entityreference_autocomplete',
+          'module' => 'entityreference',
+          'active' => 1,
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'path' => '',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_archive_node_ref',
+        'entity_type' => 'node',
+        'bundle' => 'archive_node_ref',
+        'deleted' => '0',
+      ),
+    ),
+    'field_background_color' => array(
+      0 => array(
+        'default_value' => NULL,
+        'description' => '',
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'list_default',
+            'weight' => '5',
+            'settings' => array(),
+            'module' => 'list',
+          ),
+          'teaser' => array(
+            'label' => 'above',
+            'settings' => array(),
+            'type' => 'hidden',
+            'weight' => 0,
+          ),
+        ),
+        'label' => 'Background Color',
+        'required' => 0,
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'active' => 1,
+          'module' => 'options',
+          'settings' => array(),
+          'type' => 'options_select',
+          'weight' => '6',
+        ),
+        'field_name' => 'field_background_color',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
+    'field_blog_image' => array(
+      0 => array(
+        'label' => 'Image',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'image_image',
+          'module' => 'image',
+          'active' => 1,
+          'settings' => array(
+            'progress_indicator' => 'throbber',
+            'preview_image_style' => 'thumbnail',
+          ),
+        ),
+        'settings' => array(
+          'file_directory' => '',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'alt_field' => 0,
+          'title_field' => 0,
+          'default_image' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'image',
+            'settings' => array(
+              'image_style' => '',
+              'image_link' => '',
+            ),
+            'module' => 'image',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'field_name' => 'field_blog_image',
+        'entity_type' => 'node',
+        'bundle' => 'blog',
+        'deleted' => '0',
+      ),
+    ),
+    'field_cf_menu_trigger' => array(
+      0 => array(
+        'label' => 'Menu Trigger',
+        'widget' => array(
+          'weight' => '18',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 15,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_cf_menu_trigger',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_cf_nav_bg_color' => array(
+      0 => array(
+        'label' => 'Background Color',
+        'widget' => array(
+          'weight' => '19',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 16,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => 'Sets the background color of navigation.',
+        'default_value' => NULL,
+        'field_name' => 'field_cf_nav_bg_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_column_1_description' => array(
+      0 => array(
+        'label' => 'Column Description',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'text_textfield',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'size' => '60',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'linkit' => array(
+            'enable' => 0,
+            'profile' => '',
+            'button_text' => 'Search',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 2,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_column_1_description',
+        'entity_type' => 'node',
+        'bundle' => 'video_grid',
+        'deleted' => '0',
+      ),
+    ),
+    'field_column_1_shows' => array(
+      0 => array(
+        'label' => 'Column Shows',
+        'widget' => array(
+          'weight' => '3',
+          'type' => 'entityreference_autocomplete',
+          'module' => 'entityreference',
+          'active' => 1,
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'path' => '',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 3,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_column_1_shows',
+        'entity_type' => 'node',
+        'bundle' => 'video_grid',
+        'deleted' => '0',
+      ),
+    ),
+    'field_custom_video_description' => array(
+      0 => array(
+        'label' => 'Description',
+        'widget' => array(
+          'weight' => '32',
+          'type' => 'text_textarea',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'rows' => '5',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'linkit' => array(
+            'enable' => 0,
+            'profile' => '',
+            'button_text' => 'Search',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_custom_video_description',
+        'entity_type' => 'node',
+        'bundle' => 'custom_video_list',
+        'deleted' => '0',
+      ),
+    ),
+    'field_custom_video_list' => array(
+      0 => array(
+        'label' => 'Custom Video List',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 2,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_custom_video_list',
+        'entity_type' => 'node',
+        'bundle' => 'genre',
+        'deleted' => '0',
+      ),
+      1 => array(
+        'label' => 'Custom Video List',
+        'widget' => array(
+          'weight' => '5',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '1',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_custom_video_list',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+      2 => array(
+        'label' => 'Custom Video List',
+        'widget' => array(
+          'weight' => '7',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '3',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_custom_video_list',
+        'entity_type' => 'node',
+        'bundle' => 'partner',
+        'deleted' => '0',
+      ),
+    ),
+    'field_footer_background_color' => array(
+      0 => array(
+        'label' => 'Footer Background Color',
+        'widget' => array(
+          'weight' => '9',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(
+              'linked_field' => array(
+                'linked' => 0,
+                'destination' => '',
+                'advanced' => array(
+                  'title' => '',
+                  'target' => '',
+                  'class' => '',
+                  'rel' => '',
+                  'text' => '',
+                ),
+              ),
+            ),
+            'module' => 'color_field',
+            'weight' => 5,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_footer_background_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_h2_text_color' => array(
+      0 => array(
+        'label' => 'H2 Text Color',
+        'widget' => array(
+          'weight' => '4',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(
+              'linked_field' => array(
+                'linked' => 0,
+                'destination' => '',
+                'advanced' => array(
+                  'title' => '',
+                  'target' => '',
+                  'class' => '',
+                  'rel' => '',
+                  'text' => '',
+                ),
+              ),
+            ),
+            'module' => 'color_field',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_h2_text_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_image' => array(
+      0 => array(
+        'label' => 'Image',
+        'description' => 'Upload an image to go with this article.',
+        'required' => FALSE,
+        'settings' => array(
+          'file_directory' => 'field/image',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'alt_field' => TRUE,
+          'title_field' => '',
+          'default_image' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'type' => 'image_image',
+          'settings' => array(
+            'progress_indicator' => 'throbber',
+            'preview_image_style' => 'thumbnail',
+          ),
+          'weight' => -1,
+          'module' => 'image',
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'settings' => array(
+              'image_style' => 'large',
+              'image_link' => '',
+            ),
+            'weight' => -1,
+            'module' => 'image',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'settings' => array(
+              'image_style' => 'medium',
+              'image_link' => 'content',
+            ),
+            'weight' => -1,
+            'module' => 'image',
+          ),
+        ),
+        'field_name' => 'field_image',
+        'entity_type' => 'node',
+        'bundle' => 'article',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jpanel_bg_color' => array(
+      0 => array(
+        'label' => 'jpanel_bg_color',
+        'widget' => array(
+          'weight' => '15',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 12,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jpanel_bg_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jpanel_child_item_color' => array(
+      0 => array(
+        'label' => 'jpanel_child_item_color',
+        'widget' => array(
+          'weight' => '17',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 14,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jpanel_child_item_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jpanel_parent_item_color' => array(
+      0 => array(
+        'label' => 'jpanel_parent_item_color',
+        'widget' => array(
+          'weight' => '16',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 13,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jpanel_parent_item_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jumbotron_arrow_bg_color' => array(
+      0 => array(
+        'label' => 'jumbotron_arrow_bg_color',
+        'widget' => array(
+          'weight' => '12',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 8,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jumbotron_arrow_bg_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jumbotron_arrow_color' => array(
+      0 => array(
+        'label' => 'jumbotron_arrow_color',
+        'widget' => array(
+          'weight' => '11',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 7,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jumbotron_arrow_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jumbotron_arrow_hov_color' => array(
+      0 => array(
+        'label' => 'jumbotron_arrow_hover_color',
+        'widget' => array(
+          'weight' => '13',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 9,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jumbotron_arrow_hov_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_jumbotron_overlay' => array(
+      0 => array(
+        'label' => 'jumbotron_overlay',
+        'widget' => array(
+          'weight' => '10',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 6,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_jumbotron_overlay',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_main_image' => array(
+      0 => array(
+        'label' => 'Main Image',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'media_generic',
+          'module' => 'media',
+          'active' => 1,
+          'settings' => array(
+            'browser_plugins' => array(
+              'upload' => 'upload',
+              'media_default--media_browser_1' => 'media_default--media_browser_1',
+              'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+              'media_internet' => 0,
+              'youtube' => 0,
+            ),
+            'allowed_types' => array(
+              'image' => 'image',
+              'video' => 0,
+              'audio' => 0,
+              'document' => 0,
+            ),
+            'allowed_schemes' => array(
+              'public' => 'public',
+              'private' => 'private',
+              'cloudcast' => 0,
+              'youtube' => 0,
+            ),
+          ),
+        ),
+        'settings' => array(
+          'file_directory' => '',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'alt_field' => 0,
+          'title_field' => 0,
+          'default_image' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '2',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'field_name' => 'field_main_image',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+    ),
+    'field_partner_logo_large' => array(
+      0 => array(
+        'label' => 'Full Size Logo',
+        'widget' => array(
+          'weight' => '6',
+          'type' => 'media_generic',
+          'module' => 'media',
+          'active' => 1,
+          'settings' => array(
+            'browser_plugins' => array(
+              'upload' => 'upload',
+              'media_default--media_browser_1' => 'media_default--media_browser_1',
+              'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+              'media_internet' => 'media_internet',
+              'youtube' => 0,
+            ),
+            'allowed_types' => array(
+              'image' => 'image',
+              'video' => 0,
+              'audio' => 0,
+              'document' => 0,
+            ),
+            'allowed_schemes' => array(
+              'public' => 'public',
+              'private' => 'private',
+              'cloudcast' => 0,
+              'youtube' => 0,
+            ),
+          ),
+        ),
+        'settings' => array(
+          'file_directory' => '',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'alt_field' => 0,
+          'title_field' => 0,
+          'default_image' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'weight' => '2',
+            'settings' => array(
+              'image_style' => '',
+              'image_link' => '',
+            ),
+            'module' => 'image',
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'field_name' => 'field_partner_logo_large',
+        'entity_type' => 'node',
+        'bundle' => 'partner',
+        'deleted' => '0',
+      ),
+    ),
+    'field_primary_color_1' => array(
+      0 => array(
+        'label' => 'Primary Color 1',
+        'widget' => array(
+          'weight' => '4',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(
+              'linked_field' => array(
+                'linked' => 0,
+                'destination' => '',
+                'advanced' => array(
+                  'title' => '',
+                  'target' => '',
+                  'class' => '',
+                  'rel' => '',
+                  'text' => '',
+                ),
+              ),
+            ),
+            'module' => 'color_field',
+            'weight' => 3,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_primary_color_1',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_primary_color_2' => array(
+      0 => array(
+        'label' => 'Primary Color 2',
+        'widget' => array(
+          'weight' => '5',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(
+              'linked_field' => array(
+                'linked' => 0,
+                'destination' => '',
+                'advanced' => array(
+                  'title' => '',
+                  'target' => '',
+                  'class' => '',
+                  'rel' => '',
+                  'text' => '',
+                ),
+              ),
+            ),
+            'module' => 'color_field',
+            'weight' => 4,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_primary_color_2',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_slider_description' => array(
+      0 => array(
+        'default_value' => NULL,
+        'description' => '',
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '2',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'teaser' => array(
+            'label' => 'above',
+            'settings' => array(),
+            'type' => 'hidden',
+            'weight' => 0,
+          ),
+        ),
+        'label' => 'Slider Description',
+        'required' => 0,
+        'settings' => array(
+          'text_processing' => '0',
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'active' => 1,
+          'module' => 'text',
+          'settings' => array(
+            'size' => '60',
+          ),
+          'type' => 'text_textfield',
+          'weight' => '5',
+        ),
+        'field_name' => 'field_slider_description',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
+    'field_slider_link' => array(
+      0 => array(
+        'default_value' => NULL,
+        'description' => '',
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'link_default',
+            'weight' => '4',
+            'settings' => array(),
+            'module' => 'link',
+          ),
+          'teaser' => array(
+            'label' => 'above',
+            'settings' => array(),
+            'type' => 'hidden',
+            'weight' => 0,
+          ),
+        ),
+        'label' => 'Slider Link',
+        'required' => 0,
+        'settings' => array(
+          'attributes' => array(
+            'class' => '',
+            'configurable_title' => 0,
+            'rel' => '',
+            'target' => 'default',
+            'title' => '',
+          ),
+          'display' => array(
+            'url_cutoff' => '80',
+          ),
+          'enable_tokens' => 1,
+          'title' => 'none',
+          'title_maxlength' => '128',
+          'title_value' => '',
+          'url' => 0,
+          'user_register_form' => FALSE,
+          'validate_url' => 1,
+          'title_label_use_field_label' => FALSE,
+          'absolute_url' => 1,
+        ),
+        'widget' => array(
+          'active' => 0,
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_field',
+          'weight' => '8',
+        ),
+        'field_name' => 'field_slider_link',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
+    'field_slider_reference' => array(
+      0 => array(
+        'default_value' => NULL,
+        'description' => '',
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'entityreference_label',
+            'weight' => '3',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
+          'teaser' => array(
+            'label' => 'above',
+            'settings' => array(),
+            'type' => 'hidden',
+            'weight' => 0,
+          ),
+        ),
+        'label' => 'Slider Reference',
+        'required' => 0,
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'active' => 1,
+          'module' => 'entityreference',
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'path' => '',
+            'size' => '60',
+          ),
+          'type' => 'entityreference_autocomplete',
+          'weight' => '7',
+        ),
+        'field_name' => 'field_slider_reference',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
+    'field_slideshow_image' => array(
+      0 => array(
+        'description' => '',
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'weight' => '1',
+            'settings' => array(
+              'image_style' => 'large',
+              'image_link' => '',
+            ),
+            'module' => 'image',
+          ),
+          'teaser' => array(
+            'label' => 'above',
+            'settings' => array(),
+            'type' => 'hidden',
+            'weight' => 0,
+          ),
+        ),
+        'label' => 'Slideshow Image',
+        'required' => 0,
+        'settings' => array(
+          'alt_field' => 0,
+          'default_image' => 0,
+          'file_directory' => '',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'title_field' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'active' => 1,
+          'module' => 'media',
+          'settings' => array(
+            'allowed_schemes' => array(
+              'cloudcast' => 0,
+              'public' => 'public',
+              'vimeo' => 0,
+              'youtube' => 0,
+            ),
+            'allowed_types' => array(
+              'audio' => 0,
+              'document' => 0,
+              'image' => 'image',
+              'video' => 0,
+            ),
+            'browser_plugins' => array(
+              'media_default--media_browser_1' => 'media_default--media_browser_1',
+              'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+              'media_internet' => 0,
+              'upload' => 'upload',
+              'youtube' => 0,
+            ),
+            'progress_indicator' => 'throbber',
+          ),
+          'type' => 'media_generic',
+          'weight' => '4',
+        ),
+        'field_name' => 'field_slideshow_image',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
+    'field_tags' => array(
+      0 => array(
+        'label' => 'Tags',
+        'description' => 'Enter a comma-separated list of words to describe your content.',
+        'widget' => array(
+          'type' => 'taxonomy_autocomplete',
+          'weight' => -4,
+          'settings' => array(
+            'size' => 60,
+            'autocomplete_path' => 'taxonomy/autocomplete',
+          ),
+          'module' => 'taxonomy',
+        ),
+        'display' => array(
+          'default' => array(
+            'type' => 'taxonomy_term_reference_link',
+            'weight' => 10,
+            'label' => 'above',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+          'teaser' => array(
+            'type' => 'taxonomy_term_reference_link',
+            'weight' => 10,
+            'label' => 'above',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'required' => FALSE,
+        'default_value' => NULL,
+        'field_name' => 'field_tags',
+        'entity_type' => 'node',
+        'bundle' => 'article',
+        'deleted' => '0',
+      ),
+    ),
+    'field_teaser' => array(
+      0 => array(
+        'label' => 'Teaser',
+        'widget' => array(
+          'weight' => '3',
+          'type' => 'text_textarea',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'rows' => '5',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'linkit' => array(
+            'enable' => 0,
+            'profile' => '',
+            'button_text' => 'Search',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '3',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_teaser',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+    ),
+    'field_video_grid' => array(
+      0 => array(
+        'label' => 'Video Grid',
+        'widget' => array(
+          'weight' => '1',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 1,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_video_grid',
+        'entity_type' => 'node',
+        'bundle' => 'genre',
+        'deleted' => '0',
+      ),
+      1 => array(
+        'label' => 'Video Grid',
+        'widget' => array(
+          'weight' => '6',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '4',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_video_grid',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+    ),
+    'field_video_slider_arrow_bgcolor' => array(
+      0 => array(
+        'label' => 'video_slider_arrow_bg_color',
+        'widget' => array(
+          'weight' => '14',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 11,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_video_slider_arrow_bgcolor',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_video_slider_hover_color' => array(
+      0 => array(
+        'label' => 'video_slider_hover_color',
+        'widget' => array(
+          'weight' => '6',
+          'type' => 'color_field_default_widget',
+          'module' => 'color_field',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'color_field_default_formatter',
+            'settings' => array(),
+            'module' => 'color_field',
+            'weight' => 10,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_video_slider_hover_color',
+        'entity_type' => 'node',
+        'bundle' => 'color_scheme',
+        'deleted' => '0',
+      ),
+    ),
+    'field_videos_to_highlight' => array(
+      0 => array(
+        'label' => 'Shows and Series to Highlight',
+        'widget' => array(
+          'weight' => '33',
+          'type' => 'entityreference_autocomplete',
+          'module' => 'entityreference',
+          'active' => 1,
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'path' => '',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 2,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_videos_to_highlight',
+        'entity_type' => 'node',
+        'bundle' => 'custom_video_list',
+        'deleted' => '0',
+      ),
+    ),
+  ),
+  'fieldgroups' => array(
+    'group_primary_colors|node|color_scheme|form' => (object) array(
+      'id' => '8',
+      'identifier' => 'group_primary_colors|node|color_scheme|form',
+      'group_name' => 'group_primary_colors',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'Primary Colors',
+      'weight' => '2',
+      'children' => array(
+        0 => 'field_primary_color_1',
+        1 => 'field_primary_color_2',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-primary-colors field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+    'group_heading_colors|node|color_scheme|form' => (object) array(
+      'id' => '9',
+      'identifier' => 'group_heading_colors|node|color_scheme|form',
+      'group_name' => 'group_heading_colors',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'Heading Colors',
+      'weight' => '4',
+      'children' => array(
+        0 => 'field_h2_text_color',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-heading-colors field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+    'group_footer_colors|node|color_scheme|form' => (object) array(
+      'id' => '10',
+      'identifier' => 'group_footer_colors|node|color_scheme|form',
+      'group_name' => 'group_footer_colors',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'Footer',
+      'weight' => '5',
+      'children' => array(
+        0 => 'field_footer_background_color',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-footer-colors field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+    'group_fp_jumbotron|node|color_scheme|form' => (object) array(
+      'id' => '11',
+      'identifier' => 'group_fp_jumbotron|node|color_scheme|form',
+      'group_name' => 'group_fp_jumbotron',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'Front Pg Jumbotron',
+      'weight' => '3',
+      'children' => array(
+        0 => 'field_jumbotron_overlay',
+        1 => 'field_jumbotron_arrow_color',
+        2 => 'field_jumbotron_arrow_bg_color',
+        3 => 'field_jumbotron_arrow_hov_color',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-fp-jumbotron field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+    'group_jpanel_menu|node|color_scheme|form' => (object) array(
+      'id' => '12',
+      'identifier' => 'group_jpanel_menu|node|color_scheme|form',
+      'group_name' => 'group_jpanel_menu',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'jPanel Menu',
+      'weight' => '17',
+      'children' => array(
+        0 => 'field_jpanel_bg_color',
+        1 => 'field_jpanel_parent_item_color',
+        2 => 'field_jpanel_child_item_color',
+        3 => 'field_cf_menu_trigger',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-jpanel-menu field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+    'group_navigation|node|color_scheme|form' => (object) array(
+      'id' => '13',
+      'identifier' => 'group_navigation|node|color_scheme|form',
+      'group_name' => 'group_navigation',
+      'entity_type' => 'node',
+      'bundle' => 'color_scheme',
+      'mode' => 'form',
+      'parent_name' => '',
+      'table' => 'field_group',
+      'type' => 'Normal',
+      'export_type' => 1,
+      'label' => 'Navigation',
+      'weight' => '21',
+      'children' => array(
+        0 => 'field_cf_nav_bg_color',
+      ),
+      'format_type' => 'fieldset',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'description' => '',
+          'classes' => 'group-navigation field-group-fieldset',
+          'required_fields' => 1,
+        ),
+      ),
+    ),
+  ),
+);

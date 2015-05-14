@@ -1,0 +1,321 @@
+/* START: Menu Panel */
+@media screen {
+  #main {
+    -moz-transition: right 500ms;
+    -o-transition: right 500ms;
+    -webkit-transition: right 500ms;
+    transition: right 500ms;
+    background: #fff;
+    right: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  /*.menu-panel-trigger {
+    height: 88px;
+    position: absolute;
+    width: 1em;
+    z-index: 10 !important;
+    background: #383838;
+  }*/
+  
+  .menu-panel-trigger:hover,
+  .menu-panel-expanded .menu-panel-trigger {
+    /*-moz-transition: right 500ms;
+    -o-transition: right 500ms;
+    -webkit-transition: right 500ms;
+    transition: right 500ms;*/
+    /*width:1.5em;*/
+  }
+  
+  .menu-panel-trigger span.offscreen {
+    display: block;
+    text-indent: -9999px;
+  }
+  
+  /*.menu-panel-trigger:after {
+    font-family: ui-icons;
+    content: "\75";
+    font-size: 1em;
+  }*/
+  
+  .menu-panel-expanded #main {
+    right: 100%;
+  }
+  
+  #menu-panel {
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: right 500ms;
+    -o-transition: right 500ms;
+    -webkit-transition: right 500ms;
+    transition: right 500ms;
+    height: 100%;
+    position: fixed;
+    /*right: -100%;*/
+    right: -100%;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    overflow-y: scroll;
+  }
+  #menu-panel .menu-container {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #474747;
+    height: 100%;
+    overflow: auto;
+    padding: 3em 1em 2em 2em;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+  /*#menu-panel .menu-container > .menu > li {
+    padding-left: 3em;
+    position: relative;
+  }
+  #menu-panel .menu-container > .menu > li + li {
+    margin-top: 1.8em;
+  }
+  #menu-panel .menu-container > .menu > li > span, #menu-panel .menu-container > .menu > li > a {
+    color: #88c13d;
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+  #menu-panel .menu-container > .menu > li:before {
+    font-family: 'ui-icons';
+    font-size: 2em;
+    left: 0;
+    position: absolute;
+    top: -0.25em;
+  }
+  #menu-panel .menu-container > .menu > li li a {
+    font-weight: 300;
+    color: white;
+    font-size: 0.8em;
+    line-height: 1.8em;
+    margin: 0;
+  }
+  #menu-panel .menu-container > .menu > li li a:focus, #menu-panel .menu-container > .menu > li li a:hover {
+    text-decoration: underline;
+  }
+  #menu-panel .menu-container > .menu > li.about > span, #menu-panel .menu-container > .menu > li.about > a {
+    color: #87c13c;
+  }
+  #menu-panel .menu-container > .menu > li.about:before {
+    color: #87c13c;
+    content: "\6f";
+  }
+  #menu-panel .menu-container > .menu > li.news-stories > span, #menu-panel .menu-container > .menu > li.news-stories > a {
+    color: #00b1f8;
+  }
+  #menu-panel .menu-container > .menu > li.news-stories:before {
+    color: #00b1f8;
+    content: "\30";
+  }
+  #menu-panel .menu-container > .menu > li.initiatives > span, #menu-panel .menu-container > .menu > li.initiatives > a {
+    color: #ffd900;
+  }
+  #menu-panel .menu-container > .menu > li.initiatives > a:hover {
+    color: white;
+  }
+  #menu-panel .menu-container > .menu > li.initiatives:before {
+    color: #ffd900;
+    content: "\63";
+  }
+  #menu-panel .menu-container > .menu > li.donate > span, #menu-panel .menu-container > .menu > li.donate > a {
+    color: #ff414a;
+  }
+  #menu-panel .menu-container > .menu > li.donate:before {
+    color: #ff414a;
+    content: "\64";
+  }*/
+}
+@media screen and (min-width: 37.5em) {
+  #menu-panel .menu-container {
+    z-index: 1;
+  }
+}
+@media screen {
+  #menu-panel .menu-panel-close-wrapper {
+    margin-top: 45px;
+  }
+  #menu-panel .close-menu {
+    color: white;
+    display: block;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 2;
+  }
+  #menu-panel .close-menu:hover {
+    text-decoration:none;
+  }
+  #menu-panel .close-menu:before {
+    font-size: 1.8em;
+    content: '\e806';
+  }
+  #menu-panel .close-menu span {
+    display: block;
+    font-size: 0;
+    height: 0;
+  }
+}
+@media screen and (min-width: 37.5em) {
+  #menu-panel {
+    /*right: -22em;*/
+    right: -22em;
+    width: 22em;
+  }
+}
+@media screen and (min-width: 68.75em) {
+  #menu-panel .close-menu:hover:before {
+    /*content: "\6b";*/
+    text-decoration:none;
+  }
+}
+
+@media screen {
+  .menu-panel-expanded #menu-panel {
+    /*right: 0;*/
+    right:0;
+  }
+}
+@media screen and (max-width: 37.5em) {
+}
+
+@media screen and (min-width: 37.5em) {
+  .menu-panel-expanded #main {
+    right: 22em;
+  }
+}
+/* END: Menu Panel */
+
+
+
+
+
+
+/*#menu-panel ul {
+  display:block !important;
+}*/
+
+#menu-panel .block-menu-block ul li a {
+  padding-left:30px;
+}
+
+
+
+/* parent elements of main menu */
+#menu-panel #block-menu-block-3 ul > li > a,
+#menu-panel .block-menu-block ul > li > a {
+  pointer-events: none;
+  text-transform:uppercase;
+  font-size:1.2em;
+}
+
+/* child elements of main menu */
+#menu-panel #block-menu-block-3 ul li ul,
+#menu-panel .block-menu-block ul li ul {
+  padding:5px 20px;
+}
+#menu-panel #block-menu-block-3 ul li ul li a,
+#menu-panel .block-menu-block ul li ul li a {
+  color:black;
+  pointer-events: visible;
+  text-transform:none;
+}
+
+
+#menu-panel #block-menu-block-3 li a:hover,
+#menu-panel .block-menu-block li a:hover {
+  background:transparent !important;
+  text-decoration:underline;
+}
+
+#menu-panel .block-menu-block .nav>li>a {
+  padding: 5px 15px;
+}
+
+#menu-panel .col-md-2 {
+  width:100%;
+}
+
+#menu-panel .close-button {
+  float:right;
+  pointer-events: visible;
+}
+
+/* END: jPanel */
+
+/* jPanel */
+
+#menu-panel {
+}
+
+#menu-panel li {
+  
+}
+
+#menu-panel li a {
+  margin:0 15px;
+}
+
+
+
+
+
+
+
+
+/*.jpanel-trigger span {
+  display: inline-block;
+  padding-top: 12px;
+}*/
+
+
+
+.menu-panel-trigger {
+  float:right;
+  padding-top: 5px;
+}
+
+
+.menu-panel-trigger {
+  cursor:pointer;
+}
+
+.menu-panel-trigger:hover {
+  text-decoration:none;
+}
+
+.menu-panel-trigger:after {
+  font-family: "fontello";
+  content: '\e801';
+  vertical-align: top;
+  padding: 0 5px;
+  font-size: 2em;
+  color:red;
+}
+
+/*.jpanel-user-login {
+  display:block;
+  float:right;
+  color:red;
+  padding: 0 5px;
+  margin-top: -30px;
+}*/
+
+.region-navigation .col-md-6 .menu li a.menu-panel-trigger {
+  text-transform:uppercase;
+} 
+
+
