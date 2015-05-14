@@ -7,7 +7,7 @@ Download the “modules” and the “themes” folders. From the module folder,
 
 1.)  Modules
 
-1a.) Contrib Modules
+1a.) Contrib Modules (download from drupal.org project pages)
 enable these modules:
 
 admin_menu
@@ -53,7 +53,7 @@ site_wrapper
 
 community_features (this is not ready yet to be used, do not enable yet at this time)
 
-media cloudcast chapters field & media cloudcast chapters (if using)
+media cloudcast chapters field & media cloudcast chapters (if using - download from their drupal pages)
 
 1c.) Run the media cloudcast chapter importer if applicable so you have some chapters to see (this is not set up for cm agenda yet, or youtube chapters -- youtube chapters is covered in development but cm agenda addition is not yet covered).
 
