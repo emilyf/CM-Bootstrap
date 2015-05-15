@@ -292,7 +292,7 @@ put in “below footer” region
 
 You can edit this menu to change the links
 
-10e.) Colors
+5.) Colors
 
 requires custom modules: custom_form and site_cp
 
