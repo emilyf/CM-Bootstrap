@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * 
+ * main file for Community Features module.
+ */
+define('CF_MODULE_DIR', dirname(__FILE__));
+
+/**
+ * 
+ */
+function community_features_init() {
+  module_load_include("inc", "community_features", "community_features.flags_default");
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function community_features_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * Implements hook_menu
+ */
+function community_features_menu() {
+  $items = array();
+  $items['user/feed'] = array(
+      'title' => 'Feed',
+      'description' => 'My video feed',
+      'page callback' => '_community_features_user_feed',
+      'access arguments' => array('view own profile'),
+      'type' => MENU_CALLBACK,
+  );
+  $items['user/%user/following'] = array(
+      'title' => 'Following',
+      'description' => "Users I'm following",
+      'page callback' => '_community_features_user_following',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_LOCAL_TASK,
+  );
+  $items['user/%user/likes'] = array(
+      'title' => 'Likes',
+      'description' => "Videos I like",
+      'page callback' => '_community_features_user_likes',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_LOCAL_TASK,
+  );
+  $items['user/%user/followers'] = array(
+      'title' => 'Followers',
+      'description' => "Users following me",
+      'page callback' => '_community_features_user_followers',
+      'page arguments' => array(1),
+      'access arguments' => array('access content'),
+      'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+function _community_features_user_feed() {
+  ob_start();
+  include CF_MODULE_DIR . '/templates/cf-user-feed.php';
+  $contents = ob_get_contents();
+  ob_end_clean();
+  return $contents;
+}
+
+function _community_features_get_recent_videos($uid) {
+  $query = new EntityFieldQuery; //is this step needed? I noticed its missing from your example..
+  $result = $query
+          ->entityCondition('entity_type', 'node')
+          ->propertyCondition('status', 1)
+          ->propertyCondition('type', 'cm_show')
+          ->propertyCondition('uid', $uid)
+          ->propertyCondition('created', strtotime('-6 months'), ">")
+          ->propertyOrderBy('created', 'DESC')
+          ->execute();
+  if (!empty($result['node'])) {
+    $nids = array_keys($result['node']);
+
+    $shows = node_load_multiple($nids);
+    $videos = array();
+    foreach ($shows as $show) {
+      $videos[] = field_view_field('node', $show, 'field_show_vod', 'Full content');
+    }
+    return $videos;
+  } else
+    return false;
+}
+
+function _community_features_get_following($uid) {
+  $flags = flag_get_user_flags('user', null, $uid);
+  return (empty($flags['cf_follow_user'])) ? 0 : count($flags['cf_follow_user']);
+}
+
+function _community_features_get_likes($uid) {
+  $flags = flag_get_user_flags('node', null, $uid);
+  return (empty($flags['cf_like_show'])) ? 0 : count($flags['cf_like_show']);
+}
+
+function _community_features_get_follows($uid) {
+  $flag = flag_get_flag("cf_follow_user");
+  return $flag->get_count($uid);
+}
+
+function _community_features_user_followers($account) {
+  ob_start();
+  include CF_MODULE_DIR . '/templates/cf-user-followers.php';
+  $contents = ob_get_contents();
+  ob_end_clean();
+  return $contents;
+}
+
+function _community_features_user_following($account) {
+  ob_start();
+  include CF_MODULE_DIR . '/templates/cf-user-following.php';
+  $contents = ob_get_contents();
+  ob_end_clean();
+  return $contents;
+}
+
+function _community_features_user_likes($account) {
+  ob_start();
+  include CF_MODULE_DIR . '/templates/cf-user-likes.php';
+  $contents = ob_get_contents();
+  ob_end_clean();
+  return $contents;
+}
