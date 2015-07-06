@@ -25,20 +25,29 @@
 ?>
 
 <div class="show-meta">
-  <a class="meta-series-title" href="<?php print url('node/' . $series_nid); ?>">
-    <?php print $series_title; ?>
-  </a>
-  <a class="meta-node-title" style="color:#FFF;" href="<?php print url('node/' . $node->nid); ?>">
-    <?php print $node->title; ?>
-  </a>
-  <?php if (isset($genres)): ?>
-    <div class="genres-section">
-      <span class="genres-label">Topics:</span>
-      <?php foreach($genres as $genre_item): ?>
-        <a href="<?php print url('node/' . $genre_item['nid']); ?>">
-          <?php print $genre_item['title']; ?>
-        </a>
-      <?php endforeach; ?>
+  <div class="row">
+    <div class="col-md-10 col-xs-10 no-padding">
+      <a class="meta-series-title" href="<?php print url('node/' . $series_nid); ?>">
+        <?php print $series_title; ?>
+      </a>
+      <a class="meta-node-title" style="color:#FFF;" href="<?php print url('node/' . $node->nid); ?>">
+        <?php print $node->title; ?>
+      </a>
+      <?php if (isset($genres)): ?>
+        <div class="genres-section">
+          <span class="genres-label">Topics:</span>
+          <?php foreach($genres as $genre_item): ?>
+            <a href="<?php print url('node/' . $genre_item['nid']); ?>">
+              <?php print $genre_item['title']; ?>
+            </a>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
     </div>
-  <?php endif; ?>
+    <div class="col-md-2 col-xs-2 no-padding">
+      <div class="flag-container pull-right">
+        <?php print flag_create_link('cf_like_show', $node->nid); ?>
+      </div>
+    </div>
+  </div>
 </div>

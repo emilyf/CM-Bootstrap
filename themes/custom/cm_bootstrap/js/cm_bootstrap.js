@@ -274,6 +274,23 @@
     } 
   };
   
+  Drupal.behaviors.cm_boostrap_show_recent_videos_adjust_height = {
+    attach: function (context, settings) {
+      $(window).on('load resize',function() {
+        var browserWidth = $(window).width();        
+        if (browserWidth > 990) {
+          var leftHeight = $('.cb-show-recent-videos li .left').height();   
+          //console.log(leftHeight);       
+          $('.cb-show-recent-videos li .right').height(leftHeight);
+          $('.cb-show-recent-videos li .right').css('max-height', leftHeight);
+        }
+        else {
+          //$('.cb-show-recent-videos li .right').height('auto');
+        }
+      });
+    } 
+  };
+  
   Drupal.behaviors.bs3_add_item_num_to_video_block = {
     attach: function (context, settings) {
       $(window).on('load',function(){
@@ -319,7 +336,7 @@
       $(window).on('load resize',function() {
         //$(document).ready(function() {
           var browserWidth = $(window).width();        
-          if (browserWidth > 768) {
+          if (browserWidth > 996) {
             var colHeight = $('.node-type-cm-show .col-sm-8 .field-name-field-show-vod').height();
             var metaBoxHeight = $('.node-type-cm-show .show-meta').height();
             //console.log(colHeight);
@@ -330,10 +347,88 @@
             //$('.node-type-cm-show .region-sidebar-second').fadeIn();
           }      
           else {
+            //console.log('no min height');
             $('.node-type-cm-show .region-sidebar-second .tab-content').height('auto');  
+
+            $('.node-type-cm-show .region-sidebar-second .tab-content').css('min-height', 'initial');
+            $('.node-type-cm-show .region-sidebar-second .tab-content').css('max-height', 'initial');
           } 
         //}); 
       });
     } 
   };
+  
+  // Hide certains tabs + reset active state to first remaining.
+  Drupal.behaviors.cm_bootstrap_show_sidebar_mobile = {
+    attach: function (context, settings) {
+      $(window).on('load resize',function() {
+        var browserWidth = $(window).width();        
+        if (browserWidth < 990) {
+          $('.node-type-cm-show .region-sidebar-second ul.nav-tabs li.recent-videos').remove();
+          $('.node-type-cm-show .region-sidebar-second .tab-content #recent-video').remove();
+          $('.nav-tabs li:first').addClass('active'); 
+          $('.node-type-cm-show .region-sidebar-second .tab-content .tab-pane:first').addClass('active');  
+        }
+      });
+    } 
+  };
+  
+  //
+  /*Drupal.behaviors.user_profile_ajax_load = {
+    attach: function (context, settings) {
+      $('ul.user-statistics li a').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var href = $(this).attr('href');
+        console.log(href);
+        
+        var htmlElement;
+        
+        switch (href) {
+          case '/user/1/likes':
+            htmlElement = 'ul.user-shows-likes';
+            break;
+          case '/user/1/followers':
+          case '/user/1/following':
+            htmlElement = 'ul.user-grid';
+            break;
+        }
+        $('.recent-videos').load(href + ' ' + htmlElement);
+      });
+    } 
+  };*/
+  
+  // Hide chapters + extract air date data for mobile.
+  // wluisi 5/23/2015 -- not used for now.
+  /*Drupal.behaviors.cm_bootstrap_airdate_mobile = {
+    attach: function (context, settings) {
+      $(document).ready(function() {
+        var browserWidth = $(window).width();
+        //console.log(browserWidth);
+        // Store original tabs markup
+        var originalTabsMarkup = $('.main-container .col-sm-4').clone();
+        if (browserWidth < 768) {
+          var airDateHtml = $('#airdate').clone();
+          console.log(airDateHtml);
+          var chapterAirdateTabs = $('.region-sidebar-second div[role="tabpanel"]');
+          // Remove chapters + tabs
+          chapterAirdateTabs.remove();
+          // Wrap airDateHtml in container div
+          $(airDateHtml).wrapInner('<div class="airdate-container"></div>');
+          // Append airDateHtml to 2nd sidebar
+          $(airDateHtml).appendTo('.region-sidebar-second');          
+        }
+        else {
+          console.log(originalTabsMarkup);
+          //$('.main-container .col-sm-4').remove();
+          //$('.airdate-container').html(originalTabsMarkup);
+          //console.log(originalTabsMarkup);
+          //$('.region-sidebar-second div[role="tabpanel"]').replaceWith(originalTabsMarkup);
+        }
+      });
+    } 
+  };*/
+  
+  
 })(jQuery);

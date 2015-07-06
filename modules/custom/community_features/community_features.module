@@ -1,11 +1,70 @@
 <?php
 
+module_load_include('inc', 'community_features', 'blocks/cf_user_statistics');
+
 /**
  * @file
  * 
  * main file for Community Features module.
  */
 define('CF_MODULE_DIR', dirname(__FILE__));
+
+/**
+ * Implements hook_block_info().
+ */
+function community_features_block_info() {  
+  $blocks['cf_user_statistics'] = array(
+    'info' => t('cf_user_statistics'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => '0',
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function community_features_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'cf_user_statistics':
+      $block['content'] = _cf_user_statistics();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function community_features_theme($existing, $type, $theme, $path) {
+	$theme = array();
+	$theme['cf_user_likes'] = array(
+		'template' => 'cf-user-likes',
+		'path' => $path . '/templates',
+	);
+	$theme['cf_user_feed_all'] = array(
+		'template' => 'cf-user-feed-all',
+		'path' => $path . '/templates',
+	);
+  $theme['cf_user_statistics'] = array(
+		'template' => 'cf-user-statistics',
+		'path' => $path . '/templates',
+	);
+	return $theme;
+}
+
+/**
+ * Custom in_array_r() function. Recursively searches an array for a value. 
+ */
+function in_array_r($needle, $haystack, $strict = false) {
+  foreach ($haystack as $item) {
+    if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+      return true;
+    }
+  }
+  return false;
+}
 
 /**
  * 
@@ -29,39 +88,116 @@ function community_features_views_api() {
 function community_features_menu() {
   $items = array();
   $items['user/feed'] = array(
-      'title' => 'Feed',
-      'description' => 'My video feed',
-      'page callback' => '_community_features_user_feed',
-      'access arguments' => array('view own profile'),
-      'type' => MENU_CALLBACK,
+    'title' => 'Feed',
+    'description' => 'My video feed',
+    'page callback' => 'community_features_user_feed',
+    'file' => 'data/community_features_user_feed.php',
+    'access callback' => array('user_is_logged_in'),
+    'type' => MENU_CALLBACK,
   );
   $items['user/%user/following'] = array(
-      'title' => 'Following',
-      'description' => "Users I'm following",
-      'page callback' => '_community_features_user_following',
-      'page arguments' => array(1),
-      'access arguments' => array('access content'),
-      'type' => MENU_LOCAL_TASK,
+    'title' => 'Following',
+    'description' => "Users I'm following",
+    'page callback' => '_community_features_user_following',
+    'page arguments' => array(1),
+    'access callback' => array('user_is_logged_in'),
+    'type' => MENU_LOCAL_TASK,
   );
   $items['user/%user/likes'] = array(
-      'title' => 'Likes',
-      'description' => "Videos I like",
-      'page callback' => '_community_features_user_likes',
-      'page arguments' => array(1),
-      'access arguments' => array('access content'),
-      'type' => MENU_LOCAL_TASK,
+    'title' => 'Likes',
+    'description' => "Videos I like",
+    'page callback' => '_community_features_user_likes',
+    'page arguments' => array(1),
+    'access callback' => array('user_is_logged_in'),
+    'type' => MENU_LOCAL_TASK,
   );
   $items['user/%user/followers'] = array(
-      'title' => 'Followers',
-      'description' => "Users following me",
-      'page callback' => '_community_features_user_followers',
-      'page arguments' => array(1),
-      'access arguments' => array('access content'),
-      'type' => MENU_LOCAL_TASK,
+    'title' => 'Followers',
+    'description' => "Users following me",
+    'page callback' => '_community_features_user_followers',
+    'page arguments' => array(1),
+    'access callback' => array('user_is_logged_in'),
+    'type' => MENU_LOCAL_TASK,
   );
   return $items;
 }
 
+/**
+ * Custom permission. Not used (yet)
+ */
+function community_features_user_permission() {
+  // Admin can see all profiles
+  if (user_is_logged_in() && in_array('administrator', $GLOBALS['user']->roles)) {
+    return TRUE;
+  }
+  // Regular users can only see profiles of users they are following.
+  else if (user_is_logged_in()) {
+    $uid = arg(1);
+    $flags = flag_get_user_flags('user');
+    foreach($flags['cf_follow_user'] as $flag) {
+      $uids[] = $flag->entity_id;
+    }
+    if (in_array($uid, $uids)) {    
+      return TRUE;
+    }
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function community_features_image_default_styles() {
+  $styles = array();
+  $styles['user_feed_large'] = array(
+    'label' => 'User Feed Larger(592x322)',
+    'effects' => array(
+      array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 592, 
+          'height' => 322, 
+          'upscale' => 1,
+        ),
+        'weight' => 0,
+      ),
+    )
+  );
+  $styles['user_avatar'] = array(
+    'label' => 'User Avatar (100x100)',
+    'effects' => array(
+      array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 100, 
+          'height' => 100, 
+          'upscale' => 1,
+        ),
+        'weight' => 0,
+      ),
+    )
+  );
+  $styles['user_avatar_large'] = array(
+    'label' => 'User Avatar Large (293x293)',
+    'effects' => array(
+      array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 293, 
+          'height' => 293, 
+          'upscale' => 1,
+        ),
+        'weight' => 0,
+      ),
+    )
+  );
+  return $styles;
+}
+
+// @todo Fix this
+//
 function _community_features_user_feed() {
   ob_start();
   include CF_MODULE_DIR . '/templates/cf-user-feed.php';
@@ -71,26 +207,52 @@ function _community_features_user_feed() {
 }
 
 function _community_features_get_recent_videos($uid) {
-  $query = new EntityFieldQuery; //is this step needed? I noticed its missing from your example..
-  $result = $query
-          ->entityCondition('entity_type', 'node')
-          ->propertyCondition('status', 1)
-          ->propertyCondition('type', 'cm_show')
-          ->propertyCondition('uid', $uid)
-          ->propertyCondition('created', strtotime('-6 months'), ">")
-          ->propertyOrderBy('created', 'DESC')
-          ->execute();
-  if (!empty($result['node'])) {
+  $query = new EntityFieldQuery;
+  $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('status', 1)
+    ->propertyCondition('type', 'cm_show')
+    ->propertyCondition('uid', $uid)
+    ->propertyCondition('created', strtotime('-6 months'), ">")
+    ->propertyOrderBy('created', 'DESC')
+    ->fieldCondition('field_show_vod', 'fid', 'NULL', '!=')
+    ->pager(10);
+  $result = $query->execute();
+  if (isset($result['node'])) {
     $nids = array_keys($result['node']);
-
-    $shows = node_load_multiple($nids);
-    $videos = array();
-    foreach ($shows as $show) {
-      $videos[] = field_view_field('node', $show, 'field_show_vod', 'Full content');
+    $nodes = node_load_multiple($nids);
+    foreach ($nodes as $node) {
+      $videos[] = $node;
     }
-    return $videos;
-  } else
-    return false;
+    $build['pager'] = array(
+      '#theme' => 'pager',
+      '#weight' => 5,
+    );
+    $build['videos'] = $videos;
+    $build['video_count'] = '50';
+    return $build;
+    //dpm($videos);
+    //return $videos;
+  } 
+}
+
+function _community_features_get_user_video_count($uid) {
+  $query = new EntityFieldQuery;
+  $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('status', 1)
+    ->propertyCondition('type', 'cm_show')
+    ->propertyCondition('uid', $uid)
+    ->propertyOrderBy('created', 'DESC')
+    ->fieldCondition('field_show_vod', 'fid', 'NULL', '!=');
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $nodes = node_load_multiple($nids);
+    foreach ($nodes as $node) {
+      $videos[] = $node;
+    }
+    $video_count = count($videos);
+    return $video_count;
+  } 
 }
 
 function _community_features_get_following($uid) {
@@ -124,10 +286,14 @@ function _community_features_user_following($account) {
   return $contents;
 }
 
-function _community_features_user_likes($account) {
-  ob_start();
-  include CF_MODULE_DIR . '/templates/cf-user-likes.php';
-  $contents = ob_get_contents();
-  ob_end_clean();
-  return $contents;
+function _community_features_user_likes($account) {  
+  $items = array(
+    'user' => $account,
+  );
+  // Send data to TPL.  
+  return theme('cf_user_likes', 
+    array (
+      'account' => $items,
+    )
+  ); 
 }

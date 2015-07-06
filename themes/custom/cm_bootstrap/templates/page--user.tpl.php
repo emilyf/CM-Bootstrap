@@ -1,99 +1,122 @@
-
-
-<div class="container-fluid navigation">
-  <div class="row">
-    <?php if (!empty($page['navigation'])): ?>
-      <?php print render($page['navigation']); ?>
-    <?php endif; ?>
-  </div>
-</div>
-
-
-
-
-<div class="container below-navigation">
-  <div class="row">
-    <?php print render($page['below_navigation']); ?>
-    
-  </div>
-</div>
-
-
-
-<div class="main-container container">  
-  <div class="row">
-    <?php print render($page['above_content']); ?>
-  </div>  
-</div>
-
-<div class="main-container container">  
-  
-  
-  <div class="row">
-
-    <?php if (!empty($page['sidebar_first'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_first']); ?>
-      </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>
-  
-     
-    <section<?php print $content_column_class; ?>>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php if (!empty($page['help'])): ?>
-        <?php print render($page['help']); ?>
-      <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-    </section>
-
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
-
-  </div>
-</div>
-
-<div class="main-container-below-content container-fluid">  
-  <div class="row">
-    <?php print render($page['below_content']); ?>
-  </div>  
-</div>
-
-
-<footer class="footer container-fluid">
-  <div class="row">
-    <?php print render($page['footer']); ?>
-  </div>
-</footer>
-
-<footer class="footer-bottom container-fluid">
-  <div class="container">
+<script>
+(function ($, Drupal) { 
+  $(function () {
+    setNavigation();
+  });
+  function setNavigation() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);    
+    $(".menu-name-menu-user-profile-menu ul li a").each(function () {
+      var href = $(this).attr('href');
+      //console.log('href:' + href);
+      if (path.substring(0, href.length) === href) {
+        $(this).closest('li').addClass('active-upmi');
+      }
+    });
+  }
+})(jQuery, Drupal);
+</script>
+<div id="main">
+  <div class="container-fluid navigation">
     <div class="row">
-      <div class="contact-info-container col-md-12">
-        <?php print render($page['footer_bottom']); ?>
-      </div>
+      <?php if (!empty($page['navigation'])): ?>
+        <?php print render($page['navigation']); ?>
+      <?php endif; ?>
     </div>
   </div>
-</footer>
-
+  
+  <div id="menu-panel">
+    <?php if (!empty($page['jpanel_region'])): ?>
+      <?php print render($page['jpanel_region']); ?>
+    <?php endif; ?>
+  </div>
+  
+  
+  
+  <div class="container below-navigation">
+    <div class="row">
+      <?php print render($page['below_navigation']); ?>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="main-container container">  
+    <div class="row">
+      <?php print render($page['above_content']); ?>
+    </div>  
+  </div>
+  
+  <div class="main-container container">  
+    
+    
+    <div class="row">
+  
+      <?php if (!empty($page['sidebar_first'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_first']); ?>
+        </aside>  <!-- /#sidebar-first -->
+      <?php endif; ?>
+    
+       
+      <section<?php print $content_column_class; ?>>
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <!--<?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>-->
+        <?php print render($title_suffix); ?>
+        <?php print $messages; ?>
+        <?php if (!empty($tabs)): ?>
+          <?php //print render($tabs); ?>
+        <?php endif; ?>
+        <?php if (!empty($page['help'])): ?>
+          <?php print render($page['help']); ?>
+        <?php endif; ?>
+        <?php if (!empty($action_links)): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print render($page['content']); ?>
+      </section>
+  
+      <?php if (!empty($page['sidebar_second'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_second']); ?>
+        </aside>  <!-- /#sidebar-second -->
+      <?php endif; ?>
+  
+    </div>
+  </div>
+  
+  <div class="main-container-below-content container-fluid">  
+    <div class="row">
+      <?php print render($page['below_content']); ?>
+    </div>  
+  </div>
+  
+  
+  <footer class="footer container-fluid">
+    <div class="row">
+      <?php print render($page['footer']); ?>
+    </div>
+  </footer>
+  
+  <footer class="footer-bottom container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="contact-info-container col-md-12">
+          <?php print render($page['footer_bottom']); ?>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 
 <?php
 /**

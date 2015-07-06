@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_custom_theme().
+ * switch theme based on paths and/or user roles.
+ */
+function site_custom_theme_custom_theme() {
+  if (in_array('producer', $GLOBALS['user']->roles)) {
+    // Node add
+    if (arg(0) == 'node' && arg(1) == 'add') {
+      return 'cm_admin';
+    }
+    // Node edit
+    if (arg(0) == 'node' && arg(2) == 'edit') {
+      return 'cm_admin';
+    }
+    // Node delete
+    if (arg(0) == 'node' && arg(2) == 'delete') {
+      return 'cm_admin';
+    }
+    // Node revisions
+    if (arg(0) == 'node' && arg(2) == 'revisions') {
+      return 'cm_admin';
+    }
+    // User Edit
+    if (arg(0) == 'user' && arg(2) == 'edit') {
+      return 'cm_admin';
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function site_custom_theme_form_node_form_alter(&$form, &$form_state) {
+  // Hide the field group for unprivileged users.
+  if ($GLOBALS['user']->uid != 1 && !in_array('staff', $GLOBALS['user']->roles)) {
+    // Hide cm_project fieldgroup: "Staff"
+    field_group_hide_field_groups($form, array('group_staffentryproject'));
+    // Hide cm_show fieldgroup: "Staff"
+    field_group_hide_field_groups($form, array('group_staffentry'));
+     // Hide cm_show fieldgroup: "Programming"
+    field_group_hide_field_groups($form, array('group_admin'));
+  }
+}

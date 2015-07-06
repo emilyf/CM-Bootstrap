@@ -351,9 +351,9 @@ a.navbar-brand {
   margin-top: 0 !important;
 }
 
-.region-sidebar-second .block ul {
+/*.region-sidebar-second .block ul {
   padding: 0 25px;
-}
+}*/
 
 .block .button {
   display: block;
@@ -970,13 +970,25 @@ h3#item-4.video-car-title, h3#item-8.video-car-title, h3#item-12.video-car-title
   display:none;
 }
 
-h1.page-header,
 h1.page-header {
   border-bottom:0px;
   margin: 0 auto;
   max-width: 1190px;
   padding: 0px 15px;
 }
+.page-node  h1.page-header {
+  border-bottom:0px;
+  margin: 0 auto;
+  max-width: 1190px;
+  padding: 0px 0px;
+}
+.node-type-archive-content-type h1.page-header {
+  border-bottom:0px;
+  margin: 0 auto;
+  max-width: 1190px;
+  padding: 0px 15px;
+}
+
 .node-type-cm-project h1.page-header,
 .node-type-partner  h1.page-header  {
   display:none;
@@ -1087,4 +1099,18 @@ h1.page-header {
   .region-navigation ul.menu li a {
     font-size: .65em !important;
   }
+}
+.page-node-edit .tab-content>.tab-pane, 
+.page-node-add .tab-content>.tab-pane {
+  display:block !important;
+}
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.node-type-archive-content-type #block-widgets-s-socialmedia-share-default {
+  padding-left: 20px;
+  width: 1190px;
+  margin: 0 auto;
 }

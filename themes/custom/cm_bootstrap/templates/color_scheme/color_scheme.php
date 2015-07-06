@@ -346,5 +346,83 @@ footer.footer-bottom {
   color:<?php print $colors['sidebar_field_label_color']; ?> !important;
 }
 <?php endif; ?>
-
+<?php if (isset($colors['recent_video_bg_color'])): ?>
+ul.cb-show-recent-videos li a .right {
+  background-color:<?php print $colors['recent_video_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['recent_video_bg_hover_color'])): ?>
+ul.cb-show-recent-videos li a:hover .right {
+  background-color:<?php print $colors['recent_video_bg_hover_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['recent_video_text_color'])): ?>
+ul.cb-show-recent-videos li a .right {
+  color:<?php print $colors['recent_video_text_color']; ?> !important;
+}
+<?php endif; ?>
 <?php // END: Show Detail Pg. ?>
+
+<?php // START: Cm Features ?>
+<?php if (isset($colors['cm_features_tile_bg_color'])): ?>
+ul.user-feed li .overlay,
+ul.user-shows-likes li .overlay {
+  background:<?php print $colors['cm_features_tile_bg_color']; ?> !important;
+}  
+<?php endif; ?>
+<?php if (isset($colors['cm_features_tile_bg_hover_color'])): ?>
+ul.user-feed li a:hover .overlay,
+ul.user-shows-likes li a:hover .overlay {
+  background:<?php print $colors['cm_features_tile_bg_hover_color']; ?> !important;
+}  
+<?php endif; ?>
+<?php if (isset($colors['cm_features_button_color'])): ?>
+.profile .btn-default,
+ul.user-statistics {
+  background-color:<?php print $colors['cm_features_button_color']; ?> !important;
+}
+.user-statistics:before {
+  border-right-color:<?php print $colors['cm_features_button_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_button_hover_color'])): ?>
+.profile .btn-default:hover {
+  background-color:<?php print $colors['cm_features_button_hover_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_text_color'])): ?>
+.profile .btn-default a {
+  color:<?php print $colors['cm_features_text_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_text_hover_color'])): ?>
+.profile .btn-default a:hover {
+  color:<?php print $colors['cm_features_text_hover_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_menu_bg_color'])): ?>
+.menu-name-menu-user-profile-menu ul.nav {
+  background-color:<?php print $colors['cm_features_menu_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_menu_item_bg_color'])): ?>
+.menu-name-menu-user-profile-menu ul.nav li a,
+.user-statistics li a {
+  background-color:<?php print $colors['cm_features_menu_item_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_menu_item_text_color'])): ?>
+.menu-name-menu-user-profile-menu ul.nav li a,
+.user-statistics li a {
+  color:<?php print $colors['cm_features_menu_item_text_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_features_menu_item_active_bg_color'])): ?>
+.menu-name-menu-user-profile-menu ul.nav li.active-upmi a,
+.menu-name-menu-user-profile-menu ul.nav li a:hover,
+.user-statistics li.active a,
+.user-statistics li a:hover {
+  background-color:<?php print $colors['cm_features_menu_item_active_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php // END: Cm Features ?>

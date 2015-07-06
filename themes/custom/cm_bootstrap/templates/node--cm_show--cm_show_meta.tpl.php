@@ -2,7 +2,20 @@
 
 <?php //print render($content['field_show_vod']); ?>
 <div class="row">
-  <h1 class="page-header"><?php print $node->title; ?></h1>
+  <section class="col-md-12 no-padding top-section">
+    <div class="row">
+      <div class="col-md-3 no-padding">
+        <h1 class="page-header">
+          <?php print $node->title; ?>
+        </h1>
+      </div>
+      <div class="col-md-9 no-padding">
+        <div class="flag-container">
+          <?php //print flag_create_link('cf_like_show', $node->nid); ?>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="col-sm-8">
     <!-- START: Social Media Block -->
     <?php $social_media_block = module_invoke('widgets', 'block_view', 's_socialmedia_share-default'); ?>

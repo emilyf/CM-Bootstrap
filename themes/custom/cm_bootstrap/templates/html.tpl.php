@@ -4,6 +4,9 @@
 <head profile="<?php print $grddl_profile; ?>">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php if(isset($cm_og_image)): ?>
+    <meta property="og:image" content="<?php print $cm_og_image; ?>" />
+  <?php endif; ?>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php //dpm($styles); ?>

@@ -23,7 +23,7 @@ function _front_pg_featured_videos_carousel_data() {
             $cm_show_image = image_style_url('500x281', $field_cm_show_video_img_uri);
             break;
           case 'video/vimeo':
-            $image_uri = str_replace('vimeo://v/', 'media-vimeo/', $node->field_show_vod['und'][0]['uri']) . '.jpg';
+            $field_cm_show_video_img_uri = str_replace('vimeo://v/', 'media-vimeo/', $node->field_show_vod['und'][0]['uri']) . '.jpg';
             $cm_show_image = image_style_url('500x281', $field_cm_show_video_img_uri);
             break;
           case 'video/youtube':

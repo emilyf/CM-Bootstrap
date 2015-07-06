@@ -4,6 +4,39 @@
  * @file
  * template.php
  */
+ 
+/**
+ * Implements template_preprocess_html(&$variables).
+ */
+function cm_bootstrap_preprocess_html(&$variables) {
+  foreach($variables['user']->roles as $role){
+    $variables['classes_array'][] = 'role-' . drupal_html_class($role);
+  }
+  // Set meta data for show images for facebook opengraph
+  $node = menu_get_object();
+  if (!empty($node)) {
+    if ($node->type == 'cm_show') {
+      //dpm($node);
+      // Switch to account for cloudcast, vimeo, youtube, etc.     
+      if (isset($node->field_show_vod['und'])) {        
+        switch($node->field_show_vod['und'][0]['filemime']) {
+          case 'video/cloudcast':
+            $image_uri = 'media-cloudcast/' . $node->field_show_vod['und'][0]['filename']  . '.jpg';
+            break;
+          case 'video/vimeo':
+            $image_uri = str_replace('vimeo://v/', 'media-vimeo/', $node->field_show_vod['und'][0]['uri']);
+            $image_uri = $image_uri . '.jpg';
+            break;
+          case 'video/youtube':  
+            $image_uri = str_replace('youtube://v/', 'media-youtube/', $node->field_show_vod['und'][0]['uri']);
+            $image_uri = $image_uri . '.jpg';
+            break;
+        }
+      }
+      $variables['cm_og_image'] = $GLOBALS['base_url'] . '/sites/default/files/styles/500x281/public/' . $image_uri;
+    }
+  }
+}
 
 /**
  * Implements template_preprocess_page(&$variables).
@@ -44,29 +77,24 @@ function cm_bootstrap_preprocess_user_profile(&$variables) {
     $variables['following'] = _community_features_get_following($account->uid);
     $variables['follows'] = _community_features_get_follows($account->uid);
     $variables['likes'] = _community_features_get_likes($account->uid);
+    $variables['video_count'] = _community_features_get_user_video_count($account->uid);
   }
 }
 
 /**
- * Implements template_preprocess_field(&$variables, $hook).
+ * Implements theme_menu_link(array $variables).
+ *
+ * Overrides bootstrap's theme/menu/menu-link.func.php:bootstrap_menu_link(array $variables) 
+ * To remove the drop-down menus and other crap that bootstrap adds.
+ * This resets theme_menu_link to its default code.
  */
-/*function cm_bootstrap_preprocess_field(&$variables, $hook) {  
-  if ($variables['element']['#field_name'] == 'field_tags') {
-    foreach($variables['items'] as $item) {
-      dpm($item);
-      $item['#title'] = $item['#title'] . ',';
-    }
-    dpm($variables);
-  }
-}*/
+function cm_bootstrap_menu_link(array $variables) {
+  $element = $variables ['element'];
+  $sub_menu = '';
 
-/**
- * Implements theme_field($variables).
- */
-/*function cm_bootstrap_field__field_tags__cm_show($variables) {
-  foreach($variables['items'] as $item) {
-    dpm($item);
-    $item['#title'] = $item['#title'] . ',';
+  if ($element ['#below']) {
+    $sub_menu = drupal_render($element ['#below']);
   }
-  dpm($variables);
-}*/
+  $output = l($element ['#title'], $element ['#href'], $element ['#localized_options']);
+  return '<li' . drupal_attributes($element ['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}

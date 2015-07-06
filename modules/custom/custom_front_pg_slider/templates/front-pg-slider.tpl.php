@@ -4,7 +4,7 @@
     <ul class="front-pg-slider-items slides">
       <?php foreach($content as $node): ?>
         <li>
-          <a href="<?php print '/node/' . $node['nid']; ?>">
+          <a href="<?php print $node['url']; ?>">
             <span class="title-container">
               <span class="title">
                 <?php print $node['title']; ?> &raquo;

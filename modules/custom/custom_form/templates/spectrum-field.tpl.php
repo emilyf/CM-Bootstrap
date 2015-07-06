@@ -3,7 +3,7 @@
 <?php //dpm($element['spectrum_field']); ?>
 
 <script>
-(function ($, Drupal) { 
+/*(function ($, Drupal) { 
   $(".cf-spectrum").spectrum({
     showInitial: true,
     showInput: true,
@@ -11,5 +11,5 @@
     //color: ,
     //showPalette:true,
   });
-})(jQuery, Drupal);
+})(jQuery, Drupal);*/
 </script>

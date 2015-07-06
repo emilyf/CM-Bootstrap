@@ -7,7 +7,7 @@
 /**
  * Overrides theme_menu_link().
  */
-/*function bootstrap_menu_link(array $variables) {
+function bootstrap_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -40,4 +40,4 @@
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}*/
+}

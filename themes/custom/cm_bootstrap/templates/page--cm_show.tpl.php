@@ -43,8 +43,16 @@
         </aside>  <!-- /#sidebar-first -->
       <?php endif; ?>
     
+      <?php 
+        if (!empty($page['sidebar_second'])) { 
+          $col_class = 'col-sm-8';
+        }
+        else {
+          $col_class = 'col-sm-12';
+        }
+      ?>
        
-      <section class="col-sm-8">
+      <section class="<?php print $col_class; ?>">
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>

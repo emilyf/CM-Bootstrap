@@ -1,6 +1,6 @@
 .footer {
-  border-top: 12px solid #ff7700;
-  background-color: #0099d9;
+  border-top: 12px solid whitesmoke;
+  background-color: #000;
   padding-top:0;
   padding-bottom:0;
 }
@@ -20,7 +20,7 @@ footer .block-menu-block ul li a:hover {
 }
 
 footer .block-menu-block {
-  border-right: 1px solid #ff7700;
+  border-right: 1px solid whitesmoke;
   margin: 0;
   height: 245px;
   padding: 15px 10px 30px 10px;
@@ -41,7 +41,7 @@ footer .row {
 }
 
 footer.footer-bottom {
-  background: #00ADF4;
+  background: #373737;
   padding: 30px 0 20px 0;
 }
 
@@ -216,5 +216,9 @@ ul.social li a.tumblr:before {
   .region-footer-bottom section.block {
     width:100%;
     float:none;
+  }
+  #block-custom-block-cb-social-media-menu ul.social {
+    float:inherit;
+    padding-left: 30px;
   }
 }

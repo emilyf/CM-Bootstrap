@@ -4,17 +4,16 @@
 
 .user-statistics {
   list-style-type: none;
-  padding: 10px;
+  padding: 0px;
   margin: 0;
   background-color: red;
-  float: left;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   position: relative;
   margin-bottom: 20px;
 }
-.user-statistics:before {
+/*.user-statistics:before {
   content: '';
   position: absolute;
   width: 0;
@@ -25,19 +24,31 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid red;  
-}
+}*/
 .user-statistics li {
-  display: inline-block;
-  padding: 0 30px;  
+  float:left;
+  padding: 0px;
+  width:25%;  
   color: white;
   text-align: center;
-  border-right: 1px solid black;
 }
+.user-statistics li.active a {
+  background:red;
+} 
 .user-statistics li:last-of-type {
   border: none;
 }
 .user-statistics li .statistic {
   font-size: 2em;
+}
+.user-statistics li a {
+  padding: 10px 0px;
+  display: block;
+  margin-right: 2px;
+  text-align: center;
+}
+.user-statistics li a:hover {
+  text-decoration:none;
 }
 
 .user-details {
@@ -67,23 +78,227 @@
 }
 
 .flag-cf-like-show .flag {
-  position: relative;
-  display: block;
+  /*position: relative;
+  display: block;*/
 }
 
-.flag-cf-like-show .flag:before {
+.flag-cf-like-show .flag:after {
   content: '\e831';
   font-family: 'fontello';
   background-color: white;
-  width: 40px;
-  height: 40px;
   color: black;
-  position: absolute;
-  line-height: 40px;
-  text-align: center;
 }
 
 .flag-cf-like-show .flag:hover:before {
   color: white;
   background-color: black;
+}
+
+
+/* START: User/UID/Likes */
+.user-shows-likes-container {
+}
+ul.user-shows-likes {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.user-shows-likes li {
+  float: left;
+  padding: 10px 10px 5px 0;
+  width: 25%;
+}
+ul.user-shows-likes li a {
+}
+ul.user-shows-likes li a:hover {
+  color:#FFF;
+}
+ul.user-shows-likes li a img {
+  width: 100%;
+  display: block;
+}
+ul.user-shows-likes li a span.overlay {
+  height: 8em;
+  font-weight: 700;
+  position: relative;
+  bottom: 0;
+  background-color:#222222;
+  color: white;
+  opacity: 1;
+  padding: 10px;
+  display: block;
+}
+ul.user-shows-likes li a span.overlay .title {
+  font-size:1em;
+}
+ul.user-shows-likes li a span.overlay .series-title,
+ul.user-shows-likes li a span.overlay .watch-now-mobile  {
+  font-size:.75em;
+}
+.user-profile-right-col {
+  z-index:5;
+}
+.user-profile-right-col,
+.user-profile-third-col {
+  padding-left:60px;
+}
+@media (max-width: 600px) { 
+  .user-profile-left-col,
+  .user-profile-right-col {
+    width:100%;
+  }
+  .user-profile-right-col {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 996px) { 
+  .user-profile-third-col {
+    padding-left:0px;
+    margin-top:315px;
+  }
+  /*.user-statistics li a {
+    width:80px;
+    font-size:.75em;
+  }*/
+}
+.user-details .btn {
+  display: block;
+}
+.user-avatar-large {
+  width: 100%;
+  height: auto;
+}
+
+@media all and (max-width: 768px) {
+  ul.user-shows-likes li {
+    width: 50%;
+  }
+}
+@media all and (max-width: 500px) {
+  ul.user-shows-likes {
+    display: block;
+  }
+  ul.user-shows-likes li {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}
+.page-user-feed .page-header {
+  padding: 10px 0 20px 0;
+}
+.page-user-feed .main-container .col-sm-3 {
+  padding-top:70px;
+}
+
+ul.user-feed {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  padding-top: 25px;
+}
+ul.user-feed li {
+  margin-bottom:30px;
+}
+ul.user-feed li .overlay {
+  display:block;
+  padding:15px;
+  height: 8em;
+  font-weight: 700;
+  position: relative;
+  bottom: 0;
+  color: #FFF;
+  opacity: 1;
+  padding: 20px;
+  display: block;
+  background: #222222;
+}
+ul.user-feed li .title,
+ul.user-feed li .series-title {
+  color:#FFF;
+}
+ul.user-feed li a.show-link:hover {
+  text-decoration:underline;
+  color:#FFFFFF;
+}
+ul.user-feed li .overlay .watch-now-mobile {
+  bottom:15px;
+}
+ul.user-feed li .author-data {
+  width:15%;
+  /*background:lightgray;*/
+  float:left;
+}
+ul.user-feed li .video-data {
+  width:85%;
+  float:left;
+  padding-left:20px !important;
+  margin-bottom: 40px;
+}
+ul.user-feed li .video-data img {
+  width:100%;
+  height:auto;
+}
+ul.user-feed li .video-data .video-container {
+  padding-top:0;
+}
+/*ul.user-feed li .overlay .series-title {
+  position:initial;
+}*/
+/* END: User/UID/Likes */
+
+.recent-videos ul.user-shows-likes li {
+  float: left;
+  padding: 10px 10px 5px 0;
+  width: 50%;
+}
+
+.menu-name-menu-user-profile-menu .nav>li {
+  position:inherit;
+  display:inline;
+  float:left;
+}
+.menu-name-menu-user-add-content ul {
+  padding:0;
+  margin:0;
+}
+.menu-name-menu-user-add-content ul li a {
+  background: darkgray;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #FFF !important;
+}
+.menu-name-menu-user-add-content ul li a:hover {
+  background:#000;
+}
+
+@media (max-width: 620px) {
+  .user-profile-right-col {
+    padding-left:0px;
+    padding-right: 0px;
+  }
+  ul.user-feed li .author-data {
+    width:100%;
+  }
+  ul.user-feed li .video-data {
+    width:100%;
+    padding:0px !important;
+  }
+}
+@media (max-width: 500px) {
+  .user-profile-right-col {
+    padding-left:0px;
+  }
+  .recent-videos ul.user-shows-likes li {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: none;
+  }
 }

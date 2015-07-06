@@ -25,6 +25,15 @@ function site_cp_menu() {
     'file' => 'forms/site_cp.colors.form.inc',
     'type' => MENU_CALLBACK,
   );
+  $items['cp/show-buttons'] = array(
+    'title' => 'Control Panel: Show Buttons',
+    'description' => 'Control Panel: Show Buttons',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('site_cp_show_buttons_form'),
+    'access arguments' => array('access control panel'),
+    'file' => 'forms/site_cp.show_buttons.form.inc',
+    'type' => MENU_CALLBACK,
+  );
   return $items;
 }
 
@@ -114,4 +123,13 @@ function site_cp_colors_get() {
   }
   
   return $colors_array;
+}
+
+/**
+ * Helper function to get show buttons.
+ */
+function site_cp_show_buttons_get() {
+  $show_buttons = db_query('SELECT * FROM {site_cp_show_buttons}')->fetchAll();
+  
+  return $show_buttons;
 }

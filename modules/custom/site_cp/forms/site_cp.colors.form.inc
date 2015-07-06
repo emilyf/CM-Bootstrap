@@ -13,7 +13,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Global Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['global_colors']['page_title_color'] = array(
@@ -82,7 +82,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Primary Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['primary_colors']['primary1_color'] = array(
@@ -116,7 +116,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Navigation Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['nav_colors']['nav_site_name_color'] = array(
@@ -144,7 +144,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Jumbotron Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['jumbotron_colors']['jumbotron_overlay_color'] = array(
@@ -178,7 +178,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('jPanel Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     // Need to add this?
     '#tree' => TRUE,
   );
@@ -219,7 +219,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Video Grid Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     // Need to add this?
     '#tree' => TRUE,
   );
@@ -248,7 +248,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Video Slider Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     // Need to add this?
     '#tree' => TRUE,
   );
@@ -331,7 +331,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Archive Pg Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['archive_colors']['archive_color_1'] = array(
@@ -365,7 +365,7 @@ function site_cp_colors_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Show Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['show']['sidebar_link_color'] = array(
@@ -386,15 +386,32 @@ function site_cp_colors_form($form, &$form_state) {
     '#size' => 90,
     '#default_value' => site_cp_colors_form_default_value('sidebar_field_label_color'),
   );
+  $form['show']['recent_video_text_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Recent Videos: Text Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('recent_video_text_color'),
+  );
+  $form['show']['recent_video_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Recent Videos: Background Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('recent_video_bg_color'),
+  );
+  $form['show']['recent_video_bg_hover_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Recent Videos: Background Hover Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('recent_video_bg_hover_color'),
+  );
   // END: Show Colors
-
   
   // START: Footer Colors
   $form['footer'] = array(
     '#type' => 'fieldset',
     '#title' => t('Footer Colors'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
     '#tree' => TRUE,
   );
   $form['footer']['footer_bg_color'] = array(
@@ -422,10 +439,136 @@ function site_cp_colors_form($form, &$form_state) {
     '#default_value' => site_cp_colors_form_default_value('footer_accent_color'),
   );
   // END: Footer Colors
+  
+  // START: cm_admin Colors
+  $form['cm_admin'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('CM_ADMIN Colors'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#tree' => TRUE,
+  );
+  $form['cm_admin']['cm_admin_form_color_1'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin Form Color 1'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_form_color_1'),
+  );
+  $form['cm_admin']['cm_admin_form_color_2'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin Form Color 2'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_form_color_2'),
+  );
+  $form['cm_admin']['cm_admin_form_color_3'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin Form Color 3'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_form_color_3'),
+  );
+  $form['cm_admin']['cm_admin_text_tab_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin text tab color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_text_tab_color'),
+  );
+  $form['cm_admin']['cm_admin_button_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin: button background color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_button_bg_color'),
+  );
+  $form['cm_admin']['cm_admin_button_bg_hover_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin: button background hover color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_button_bg_hover_color'),
+  );
+  $form['cm_admin']['cm_admin_button_text_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('cm_admin: button text color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_admin_button_text_color'),
+  );
+  // END: cm_admin Colors
+  
+  // START: Community Features Colors
+  $form['cm_features'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Community Features Colors'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#tree' => TRUE,
+  );
+  $form['cm_features']['cm_features_tile_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Tile Background Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_tile_bg_color'),
+  );
+  $form['cm_features']['cm_features_tile_bg_hover_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Tile Hover Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_tile_bg_hover_color'),
+  );
+  $form['cm_features']['cm_features_button_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Button Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_button_color'),
+  );
+  $form['cm_features']['cm_features_button_hover_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Button Hover Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_button_hover_color'),
+  );
+  $form['cm_features']['cm_features_text_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Text/Link Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_text_color'),
+  );
+  $form['cm_features']['cm_features_text_hover_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Text/Link Hover Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_text_hover_color'),
+  );
+  $form['cm_features']['cm_features_menu_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Menu Background Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_menu_bg_color'),
+  );
+  $form['cm_features']['cm_features_menu_item_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Menu Item Background Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_menu_item_bg_color'),
+  );
+  $form['cm_features']['cm_features_menu_item_text_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Menu Item Text Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_menu_item_text_color'),
+  );
+  $form['cm_features']['cm_features_menu_item_active_bg_color'] = array(
+    '#type' => 'spectrum_field',
+    '#title' => t('Menu Item Active Background Color'),
+    '#size' => 90,
+    '#default_value' => site_cp_colors_form_default_value('cm_features_menu_item_active_bg_color'),
+  );
+  // END: Community Features Colors
       
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',
+  );
+  
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'site_cp') . '/js/site_cp.js',
   );
   
   //dpm($form);

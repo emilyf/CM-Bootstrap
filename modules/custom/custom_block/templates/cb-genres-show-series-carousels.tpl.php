@@ -1,6 +1,11 @@
 <div class="block-custom-block">
+<?php
+  $node = node_load(arg(1));
+  //dpm($node);
+?>
+
 <?php //dpm($content);?>
-<h2 class="block-title">Shows In This Series (GENRES)</h3>
+<h2 class="block-title"><?php print $node->title; ?> Shows</h2>
 <section class="c-flexslider-video-carousel">
   <div class="flexslider carousel">
     <ul class="slides">

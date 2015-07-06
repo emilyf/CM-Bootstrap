@@ -29,12 +29,58 @@ function site_cp_schema() {
     ),
     'primary key' => array('name'),
   );  
+  // Show Buttons
+  $schema['site_cp_show_buttons'] = array(
+    'description' => 'Stores Show Button Data.',
+    'fields' => array(
+      'machine_name' => array(
+        'description' => 'Machine name of the button.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'title' => array(
+        'description' => 'The title of the button.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'url' => array(
+        'description' => 'URL of the button.',
+        'type' => 'varchar',
+        'length' => 256,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'icon_class' => array(
+        'description' => 'icon class of the button.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('machine_name'),
+  );  
   return $schema;
 }
+
+/**
+ * Create new database table {mytable2}.
+ */
+/*function mymodule_update_7101() {
+  $schema['site_cp_show_buttons'] = array(
+     // table definition array goes here
+  );
+  db_create_table('mytable2', $schema['mytable2']);
+}*/
 
 /**
  * Implements hook_uninstall().
  */
 function site_cp_uninstall() {
   drupal_uninstall_schema('site_cp_colors');
+  drupal_uninstall_schema('site_cp_show_buttons');
 }

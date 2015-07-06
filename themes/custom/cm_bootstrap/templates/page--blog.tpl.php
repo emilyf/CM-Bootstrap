@@ -1,55 +1,105 @@
+<?php 
+  $node = node_load(arg(1));
+  $blog_bg_img = image_style_url('front_pg_slider_1440_x_720', $node->field_blog_image['und'][0]['uri']);
+?>
+
+<?php if(isset($blog_bg_img)): ?>
+<style>
+.node-type-blog .below-navigation {
+  background-image: url('<?php print $blog_bg_img; ?>');
+  /*height:400px;
+  background-size: 100%;*/
+  background-repeat: no-repeat;
+  
+  background-position: center center;
+  background-size: cover;
+  min-height: 40em;
+  /*position: absolute;
+  top: 0;*/
+  width: 100%;
+}
+.node-type-blog .blog-date {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0px 0px 10px 0px;
+  color: darkgray;
+}
+@media (max-width: 760px) {
+  .node-type-blog .below-navigation  {
+    -webkit-transition: 250ms ease-out;
+    -moz-transition: 250ms ease-out;
+    -o-transition: 250ms ease-out;
+    transition: 250ms ease-out;
+    min-height:20em;
+  }
+  .node-type-blog .main-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.node-type-blog h1.page-header {
+  padding: 25px 0px 10px 0px;
+}
+<?php if (isset($node->field_hero_image_color['und'])): ?>
+  <?php if ($node->field_hero_image_color['und'][0]['value'] == '0'): ?>
+    #block-custom-block-cb-social-media-menu-2 ul.social li a {
+      color:#FFF;
+    }
+  <?php endif; ?>
+<?php endif; ?>
+
+</style>
+<?php endif; ?>
+
 <div id="main">
   <div class="container-fluid navigation">
     <div class="row">
       <?php if (!empty($page['navigation'])): ?>
         <?php print render($page['navigation']); ?>
       <?php endif; ?>
-      <!--<div class="col-md-2">
-        <a class="jpanel-trigger">
-          <span>MENU</span>
-        </a>
-      </div>-->
     </div>
   </div>
-  
   <div id="menu-panel">
     <?php if (!empty($page['jpanel_region'])): ?>
       <?php print render($page['jpanel_region']); ?>
     <?php endif; ?>
   </div>
-  
-  <div class="container below-navigation">
-    <div class="row">
-      <?php print render($page['below_navigation']); ?>
-      
+  <div class="container-fluid below-navigation">
+    <div class="container">
+      <div class="row">
+        <?php print render($page['below_navigation']); ?>
+      </div>
     </div>
   </div>
-  
-  
-  
   <div class="main-container container">  
-    
     <div class="row">
       <?php print render($page['above_content']); ?>
-    </div>  
-    
-    
-    
+    </div>      
     <div class="row">
-  
       <?php if (!empty($page['sidebar_first'])): ?>
         <aside class="col-sm-3" role="complementary">
           <?php print render($page['sidebar_first']); ?>
         </aside>  <!-- /#sidebar-first -->
       <?php endif; ?>
-    
-       
-      <section<?php print $content_column_class; ?>>
+      <?php 
+        if (!empty($page['sidebar_second'])) { 
+          $col_class = 'col-sm-8';
+        }
+        else {
+          $col_class = 'col-sm-12';
+        }
+      ?>
+      <section class="<?php print $col_class; ?>">
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
         <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
         <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>
         <?php print $messages; ?>
         <?php if (!empty($tabs)): ?>
           <?php print render($tabs); ?>
@@ -60,104 +110,15 @@
         <?php if (!empty($action_links)): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
-        <?php //print render($page['content']); ?>
-        <!-- START: Video -->
-        <?php
-          if (arg(0) == 'node' && is_numeric(arg(1))) {
-            $node = node_load(arg(1), $vid = NULL, $reset = TRUE);   
-            //dpm($node);
-            if (isset($node->field_show_vod['und'])) {        
-              switch($node->field_show_vod['und'][0]['filemime']) {
-                case 'video/cloudcast':
-                  $iframe_class = 'media-cloudcast-player';
-                  // Get param 'video'.
-                  $iframe_src_param_video = $node->field_show_vod['und'][0]['filename'];
-                  // Get param 'id'.
-                  $uri = $node->field_show_vod['und'][0]['uri'];
-                  $string_pieces = explode('/', $uri);
-                  $iframe_src_param_id = $string_pieces[3];
-                  // Build iframe src.
-                  $iframe_src = 'http://vp.telvue.com/player?wmode=opaque&amp;id=' . $iframe_src_param_id . '&amp;video=' . $iframe_src_param_video . '&amp;noplaylistskin=1&amp;width=400&amp;height=300';
-                  break;
-                case 'video/vimeo':
-                  $iframe_class = 'media-vimeo-player';
-                  // Get param 'video'.
-                  $iframe_src_param_video = $node->field_show_vod['und'][0]['filename'];
-                  // Get param 'id'.
-                  $uri = $node->field_show_vod['und'][0]['uri'];
-                  $string_pieces = explode('/', $uri);
-                  $iframe_src_param_id = $string_pieces[3];
-                  // Build iframe src.
-                  $iframe_src = 'http://player.vimeo.com/video/' . $iframe_src_param_id . '?color=" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""';
-                  break;
-                case 'video/youtube':  
-                  $iframe_class = 'media-youtube-player';
-                  $iframe_src_param_video = $node->field_show_vod['und'][0]['filename'];
-                  // Get param 'id'.
-                  $uri = $node->field_show_vod['und'][0]['uri'];
-                  $string_pieces = explode('/', $uri);
-                  $iframe_src_param_id = $string_pieces[3];
-                  //dpm($iframe_src_param_id);
-                  // Build iframe src.
-                  $iframe_src = 'http://www.youtube.com/embed/' . $iframe_src_param_id . '?controls=1&amp;wmode=opaque&amp;autoplay=0&amp;enablejsapi=0&amp;loop=0&amp;modestbranding=0&amp;rel=1&amp;showinfo=1"';
-                  break;
-              }
-            }
-            // Series meta data
-            if (isset($node->og_group_ref['und'])) {
-              $series_nid = $node->og_group_ref['und'][0]['target_id'];
-              $series_title = db_query("SELECT title FROM {node} WHERE nid = :nid", array(':nid' => $series_nid))->fetchField();  
-            }
-            else {
-              $series_nid = '';
-              $series_title = '';
-            }
-            // Genres/Topics data
-            if (isset($node->field_genres['und'])) {
-              foreach($node->field_genres['und'] as $genre) {
-                $genre_title = db_query("SELECT title FROM {node} WHERE nid = :nid", array(':nid' => $genre['target_id']))->fetchField(); 
-                $genres[] = array(
-                  'nid' => $genre['target_id'],
-                  'title' => $genre_title
-                );
-              }
-            }
-            //dpm($genres);
-          }
-        ?>
-        <?php if (isset($iframe_src)): ?>
-          <div class="video-container">          
-            <iframe class="<?php print $iframe_class; ?>" width="640" height="390" src="<?php print $iframe_src; ?>" frameborder="0" allowfullscreen=""></iframe>
-          </div>
-          <div class="show-meta">
-            <a class="meta-series-title" href="<?php print url('node/' . $series_nid); ?>">
-              <?php print $series_title; ?>
-            </a>
-            <a class="meta-node-title" style="color:#FFF;" href="<?php print url('node/' . $node->nid); ?>">
-              <?php print $node->title; ?>
-            </a>
-            <div class="genres-section">
-              <span class="genres-label">Topics:</span>
-              <?php foreach($genres as $genre_item): ?>
-                <a href="<?php print url('node/' . $genre_item['nid']); ?>">
-                  <?php print $genre_item['title']; ?>
-                </a>
-              <?php endforeach; ?>
-            </div>
-          </div>
-        <?php endif; ?>
-        <!-- END: Video -->
+        <?php print render($page['content']); ?>
       </section>
-  
       <?php if (!empty($page['sidebar_second'])): ?>
-        <aside class="col-sm-3" role="complementary">
+        <aside class="col-sm-4" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->
       <?php endif; ?>
-  
     </div>
   </div>
-  
   <?php if ($page['below_content_fwidth']): ?>
     <div class="main-container-below-content container">  
       <div class="row">
@@ -165,7 +126,6 @@
       </div>  
     </div>
   <?php endif; ?>
-  
   <?php if ($page['below_content']): ?>
     <div class="main-container-below-content container-fluid">  
       <div class="row">
@@ -173,13 +133,11 @@
       </div>  
     </div>
   <?php endif; ?>
-  
   <footer class="footer container-fluid">
     <div class="row">
       <?php print render($page['footer']); ?>
     </div>
   </footer>
-  
   <footer class="footer-bottom container-fluid">
     <div class="container">
       <div class="row">
