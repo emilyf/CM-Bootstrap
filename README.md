@@ -172,3 +172,21 @@ Download the “modules” and the “themes” folders. From the module folder,
 5. **Colors**
     * requires custom modules: custom_form and site_cp
     * configure colors  at cp/colors (and give permission to access this on permissions page)
+
+6. **Community Features**
+    1. Enable module under 'other' if not already enabled
+    2. Clear Caches to ensure menus are rebuilt
+    3. For community members, update the page that users are directed to when they login to user/feed.  There are multiple ways to do this depending on the structure of the site.  See https://www.drupal.org/node/683696 for details.
+    4. Create user profile menu - These can be customized to fit your site.
+        * **My Feed** user/feed
+        * **My Profile** user
+        * **My Videos** my-videos 
+    5. + Add menu block for the menu you just created
+        * **region**: Above Content
+        * **visibility**: user/* (Only the listed pages)
+    6. Create menu for profile sidebar
+        * **Add Series** node/add/cm-series
+        * **Add Show** node/add/cm-show
+    7. + Add menu block for the sidebar menu
+        * **region**: Sidebar
+        * **visibility**: user/*
