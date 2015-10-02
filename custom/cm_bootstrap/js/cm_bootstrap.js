@@ -1,30 +1,10 @@
-(function ($) {      
-  /*Drupal.behaviors.bs3_jPanel = {
-    attach: function (context, settings) {
-      
-      $('.region-navigation ul.menu').hide();
-      
-      if (!$('body').hasClass('admin-menu')) {
-        var jPM = $.jPanelMenu({
-          menu: '.region-jpanel-region',
-          trigger: '.jpanel-trigger',
-          direction: 'right',
-          easing: 'ease-in-out',
-          openEasing: 'ease-in',
-          // Width
-          openPosition: '352px',
-        });
-        
-        jPM.on();
-      }
-    } 
-  };*/
-  
+(function ($) {        
   // Controls events for panel menu.
+  // We use context here on click events to compensate for a stupid bug in views ajax.
   Drupal.behaviors.menuPanelBehavior = {
     attach: function(context, settings) {
       $(document).ready(function() {
-        $('body').click(function(e) {
+        $('body', context).click(function(e) {  
           // Ignore click on search box.
           if (e.target.id == "edit-search-block-form--2") {
             return;
@@ -33,18 +13,19 @@
             menuPanelClose();
           }
         });
-        $('.menu-panel-trigger').click(function(e) {
+        $('.menu-panel-trigger', context).click(function(e) {  
           e.preventDefault();
           e.stopPropagation();
           //console.log('trigger clicked');
           menuPanelToggleMenu();
         });
-        $('#menu-panel .close-menu').click(function(e) {
+        $('#menu-panel .close-menu', context).click(function(e) {  
           e.preventDefault();
           //console.log('close button clicked');
           menuPanelClose();
         });
       });
+      // Helper functions
       function menuPanelClose() {
         $('body').removeClass('menu-panel-expanded');
       }

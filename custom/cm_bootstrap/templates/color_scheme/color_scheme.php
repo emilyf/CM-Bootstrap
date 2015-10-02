@@ -78,6 +78,11 @@ h4 {
   color:<?php print $colors['nav_link_color']; ?>;
 }
 <?php endif; ?>
+<?php if (isset($colors['nav_social_media_color'])): ?>
+#block-custom-block-cb-social-media-menu-2 ul.social li a {
+  color:<?php print $colors['nav_social_media_color']; ?>;
+}
+<?php endif; ?>
 <?php // END: Navigation ?>
 
 <?php // START: Jumbotron ?>
@@ -208,7 +213,8 @@ ul.front-pg-slider-items li span.title {
 .c-flexslider-video-carousel ul li:nth-child(17) span.overlay,
 .c-flexslider-video-carousel ul li:nth-child(21) span.overlay,
 .c-flexslider-video-carousel ul li:nth-child(25) span.overlay,
-.video-grid-column ul.video-grid-shows li:nth-child(1) a span.overlay {
+.video-grid-column ul.video-grid-shows li:nth-child(1) a span.overlay,
+.taxonomy-term-pg ul.video-grid-shows li a span.overlay {
   background-color:<?php print $colors['vs_overlay_color_1']; ?> !important;
 }
 <?php endif; ?>
@@ -426,3 +432,28 @@ ul.user-statistics {
 }
 <?php endif; ?>
 <?php // END: Cm Features ?>
+
+<?php // START: User Registration ?>
+<?php if (isset($colors['cm_admin_button_bg_color'])): ?>
+#user-register-form #edit-submit {
+  background-color:<?php print $colors['cm_admin_button_bg_color']; ?> !important;
+  border-color:<?php print $colors['cm_admin_button_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_admin_button_bg_hover_color'])): ?>
+#user-register-form #edit-submit:hover {
+  background-color:<?php print $colors['cm_admin_button_bg_hover_color']; ?> !important;
+  border-color:<?php print $colors['cm_admin_button_bg_hover_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_admin_button_text_color'])): ?>
+#user-register-form #edit-submit {
+  color:<?php print $colors['cm_admin_button_text_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['cm_admin_form_color_1'])): ?>
+.page-user-register p.help-block {
+  background:<?php print $colors['cm_admin_form_color_1']; ?> !important;
+}
+<?php endif; ?>
+<?php // END: User Registration ?>

@@ -18,6 +18,7 @@
       if (isset($cm_show_node->field_show_vod['und'])) {        
         switch($cm_show_node->field_show_vod['und'][0]['filemime']) {
           case 'video/cloudcast':
+            $video_container_class = 'media-cloudcast-video media-cloudcast-1';
             $iframe_class = 'media-cloudcast-player';
             // Get param 'video'.
             $iframe_src_param_video = $cm_show_node->field_show_vod['und'][0]['filename'];
@@ -26,12 +27,23 @@
             $string_pieces = explode('/', $uri);
             $iframe_src_param_id = $string_pieces[3];
             // Build iframe src.
-            $iframe_src = 'http://vp.telvue.com/player?wmode=opaque&amp;id=' . $iframe_src_param_id . '&amp;video=' . $iframe_src_param_video . '&amp;noplaylistskin=1&amp;width=400&amp;height=300';
+            $iframe_src = 'http://vp.telvue.com/player?wmode=opaque&modestbranding=1
+&HTML5=true&id=' . $iframe_src_param_id . '&video=' . $iframe_src_param_video . '&noplaylistskin=1&width=400&height=300';
             break;
           case 'video/vimeo':
-            
+            $video_container_class = 'video-container-vimeo';
+            $iframe_class = 'media-vimeo-player';
+            // Get param 'video'.
+            $iframe_src_param_video = $cm_show_node->field_show_vod['und'][0]['filename'];
+            // Get param 'id'.
+            $uri = $cm_show_node->field_show_vod['und'][0]['uri'];
+            $string_pieces = explode('/', $uri);
+            $iframe_src_param_id = $string_pieces[3];
+            // Build iframe src.
+            $iframe_src = 'http://player.vimeo.com/video/' . $iframe_src_param_id . '?color=" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""';
             break;
           case 'video/youtube':  
+            $video_container_class = 'video-container';
             $iframe_class = 'media-youtube-player';
             $iframe_src_param_video = $cm_show_node->field_show_vod['und'][0]['filename'];
             // Get param 'id'.
@@ -51,7 +63,8 @@
   <?php if (isset($iframe_src)): ?>
     <?php //dpm($iframe_src); ?>
     <section class="col-sm-8">
-      <div class="video-container">          
+      <!--<div class="video-container">-->
+      <div class="<?php print $video_container_class; ?>">          
         <iframe class="<?php print $iframe_class; ?>" width="640" height="390" src="<?php print $iframe_src; ?>" frameborder="0" allowfullscreen=""></iframe>
       </div>
       <div class="show-meta">

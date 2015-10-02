@@ -203,6 +203,10 @@ ul.social li a.tumblr:before {
   font-family: "fontello";
   content: '\e828';
 }
+ul.social li a.blog:before {
+  font-family: "fontello";
+  content: '\e832';
+}
 /* END: Social Media Menu */
 
 .region-footer-bottom section.block {

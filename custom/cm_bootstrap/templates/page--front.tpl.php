@@ -1,3 +1,26 @@
+<style>
+  .navigation,
+  .below-navigation,
+  #block-custom-block-cb-video-grid {
+    opacity:0;
+  }
+</style>
+<script>
+  (function ($, Drupal) { 
+    $(window).load(function (){
+      if ($('.below-navigation').length) {
+        $('.below-navigation').fadeTo(750, 1,'swing'); 
+      }
+      if ($('.navigation').length) {
+        $('.navigation').fadeTo(750, 1,'swing'); 
+      }
+      if ($('#block-custom-block-cb-video-grid').length) {
+        $('#block-custom-block-cb-video-grid').fadeTo(750, 1,'swing'); 
+      }
+    });
+  })(jQuery, Drupal);
+</script>
+
 <div id="main">
   <div class="container-fluid navigation">
     <div class="row">
