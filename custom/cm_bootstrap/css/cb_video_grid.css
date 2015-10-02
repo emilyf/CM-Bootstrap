@@ -1,0 +1,149 @@
+#block-custom-block-cb-video-grid {
+  /*background: #F0F0F0; */ 
+}
+.video-grid-container {
+  position:relative;
+  max-width: 1167px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+}
+.video-grid-column {
+  width: 28.15%;
+  float: left;
+  /*margin-left: 40px;*/
+  margin-left: 4%;
+}
+.video-grid-column .top-details {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 10px 0px;
+}
+.video-grid-column .top-details .description {
+  font-size:1.2em;
+}
+.video-grid-column ul.video-grid-shows {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.video-grid-column ul.video-grid-shows li a:hover {
+  color:#FFF;
+}
+.video-grid-column ul.video-grid-shows li {
+  display:block;
+  position:relative;
+  margin-bottom:40px;
+}
+.video-grid-column ul.video-grid-shows li a img {
+  width: 100%;
+  display: block;
+}
+.video-grid-column ul.video-grid-shows li a span.overlay {
+  /*box-sizing: border-box;
+  width:100%;  
+  opacity: 0;
+  height: 100%;
+  font-weight: 700;
+  position: absolute;
+  color: #FFF;
+  padding: 20px;
+  bottom:0px;
+  -webkit-transition: 250ms ease-out;
+  -moz-transition: 250ms ease-out;
+  -o-transition: 250ms ease-out;
+  transition: 250ms ease-out;*/
+  height: 8em;
+  font-weight: 700;
+  position: relative;
+  bottom: 0;
+  color: #FFF;
+  opacity: 1;
+  padding: 20px;
+  display: block;
+}
+.video-grid-column ul.video-grid-shows li a:hover span.overlay {
+  opacity:.85;
+  -webkit-transition: 250ms ease-out;
+  -moz-transition: 250ms ease-out;
+  -o-transition: 250ms ease-out;
+  transition: 250ms ease-out;
+}
+
+/* Play button*/
+.video-grid-column ul.video-grid-shows li a span.play-button {
+  width: 400px;
+  box-sizing: border-box;
+  height: 100%;
+  z-index: 100000;
+}
+.video-grid-column ul.video-grid-shows li a span.play-button i {
+  font-size: 13em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  opacity: .85;
+  color: #FFF;
+}
+.video-grid-column span.watch-now {
+  font-size: 1em;
+  position: absolute;
+  bottom: 20px;
+}
+@media (max-width: 1023px) {
+  .video-grid-column {
+    width:100%;
+    float:none;
+    margin:0px;
+  }
+  .video-grid-column .top-details {
+    /*padding-left:20px;*/
+    width: 86%;
+    margin: 0 auto;
+  }
+  .video-grid-column ul.video-grid-shows {
+    display: inline-block;
+    width:100%;
+  }
+  .video-grid-column ul.video-grid-shows li {
+    display: block;
+    position: relative;
+    width: 50%;
+    float: left;
+    margin:0px;
+    /*padding:20px;*/
+    padding: 7%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    /*padding-top: 0px;*/
+  }
+  .video-grid-column ul.video-grid-shows li a span.overlay {
+    height: 8em;
+    font-weight: 700;
+    position: relative;
+    bottom: 0;
+    color: #FFF;
+    opacity: 1;
+    padding: 20px;
+    display: block;
+  }
+}
+@media all and (max-width: 500px) {
+  .video-grid-column ul.video-grid-shows {
+    display: block;
+  }
+  .video-grid-column ul.video-grid-shows li {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+  h3.video-grid-title {
+    font-size:1.5em;
+  }
+  .video-grid-column .top-details .description {
+    font-size:.95em;
+  }
+}

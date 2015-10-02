@@ -1,0 +1,117 @@
+name = CM Bootstrap 
+description = CM Bootstrap (Bootstrap 3 Sub-theme)
+core = 7.x
+base theme = bootstrap
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[jpanel_region]  = 'jPanel Region'
+regions[header]         = 'Top Bar'
+regions[below_navigation] = 'Below Navigation'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[above_content]  = 'Above Content'
+regions[content]        = 'Content'
+regions[below_content]  = 'Below Content'
+regions[below_content_fwidth]  = 'Below Content (Fixed Width)'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[footer_bottom]  = 'Footer Bottom'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/admin.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/navigation.css
+stylesheets[all][] = css/below_navigation.css
+stylesheets[all][] = css/footer.css
+stylesheets[all][] = css/custom_video_list.css
+stylesheets[all][] = css/custom_block.css
+stylesheets[all][] = css/menu-panel.css
+stylesheets[all][] = css/cb_video_grid.css
+stylesheets[all][] = css/node_show.css
+stylesheets[all][] = css/community_features.css
+stylesheets[all][] = css/taxonomy_terms.css
+;stylesheets[all][] = less/style.less
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Fontello
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = fontello/css/fontello.css
+stylesheets[all][] = fontello/css/animation.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Flexslider
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = js/libraries/flexslider/flexslider.css
+scripts[] = js/libraries/flexslider/jquery.flexslider-min.js
+
+;;;;;;;;;;;;;;;;;;;;;
+;; jPanel
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = js/libraries/jpanelmenu/jquery.jpanelmenu.js
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Colors
+;;;;;;;;;;;;;;;;;;;;;
+
+;stylesheets[all][] = color/colors.css
+
+
+
+
+
+scripts[] = js/cm_bootstrap.js
+scripts[] = js/cm_show_add.js
+
+
+; For information on choosing the desired method, please read the Drupal
+; Bootstrap sub-theme "how-to" documentation:
+; https://drupal.org/node/1978010
+
+; ;----------------------------------
+; ; METHOD 1: Bootstrap Source Files
+; ;----------------------------------
+; 
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+; 
+; scripts[] = 'bootstrap/js/affix.js'
+; scripts[] = 'bootstrap/js/alert.js'
+; scripts[] = 'bootstrap/js/button.js'
+; scripts[] = 'bootstrap/js/carousel.js'
+; scripts[] = 'bootstrap/js/collapse.js'
+; scripts[] = 'bootstrap/js/dropdown.js'
+; scripts[] = 'bootstrap/js/modal.js'
+; scripts[] = 'bootstrap/js/tooltip.js'
+; scripts[] = 'bootstrap/js/popover.js'
+; scripts[] = 'bootstrap/js/scrollspy.js'
+; scripts[] = 'bootstrap/js/tab.js'
+; scripts[] = 'bootstrap/js/transition.js'
+;
+; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
+; settings[bootstrap_cdn] = ''
+
+
+; ;-------------------------
+; ; METHOD 2: Bootstrap CDN
+; ;-------------------------
+;
+; Method 2 uses BootstrapCDN, the only thing you might need to provide here
+; is overrides to Bootstrap theme settings. Copy them here from the base theme
+; to override.

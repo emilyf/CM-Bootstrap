@@ -1,0 +1,24 @@
+name = CM Admin
+description = Custom Responsive Admin Theme (Sub-Theme of Adminimal)
+base theme = adminimal
+core = 7.x
+
+; STYLESHEETS
+stylesheets[all][] = css/cm_admin.css
+
+; SETTINGS
+settings[use_custom_media_queries] = 1
+settings[media_query_mobile] = only screen and (max-width: 768px)
+settings[media_query_tablet] = only screen and (min-width : 769px) and (max-width : 1025px)
+
+; REGIONS
+regions[content_before] = Before Content
+regions[sidebar_left] = Sidebar Left
+regions[content] = Content
+regions[sidebar_right] = Sidebar Right
+regions[content_after] = After Content
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = First sidebar
+regions_hidden[] = sidebar_first

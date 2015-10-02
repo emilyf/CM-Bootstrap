@@ -1,0 +1,39 @@
+/* START: Vertical tabs */
+div.vertical-tabs {
+  border: 3px solid #FF7700;
+  border-radius:5px;
+}
+div.vertical-tabs ul li.vertical-tab-button a {
+  background-color:#0099D9 !important;
+  color:#FFF !important;
+}
+div.vertical-tabs ul li.selected a {
+  background-color:#FF7700 !important;
+  color:#FFF !important;
+}
+div.vertical-tabs ul li.vertical-tab-button:not(.selected) a:hover {
+  background-color:#00adf4 !important;
+}
+div.vertical-tabs ul li a {
+  font-size:22px;
+}
+div.vertical-tabs ul li.selected a {
+  border-left:none !important;
+}
+/* END: Vertical tabs */
+
+.right-column {
+  float: right;
+}
+
+/* START: Buttons */
+#edit-actions input,
+.page-user-edit #edit-submit {
+  border-radius: 5px !important;
+  padding: 10px 20px !important;
+}
+/* END: Buttons */
+
+.back-to-home {
+  color:#FFF;
+}

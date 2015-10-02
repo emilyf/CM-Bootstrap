@@ -1,0 +1,62 @@
+.page-taxonomy-term .page-header {
+  padding: 0px 15px 15px 15px;
+}
+.taxonomy-term-pg {
+}
+.pager-container {
+  display: inline-table;
+  width: 100%;
+}
+.taxonomy-term-pg ul.video-grid-shows {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.taxonomy-term-pg ul.video-grid-shows li {
+  float: left;
+  padding: 10px 10px 5px 0;
+  width: 25%;
+}
+.taxonomy-term-pg ul.video-grid-shows li a {
+}
+.taxonomy-term-pg ul.video-grid-shows li a:hover {
+  color:#FFF;
+}
+.taxonomy-term-pg ul.video-grid-shows li a img {
+  width: 100%;
+  display: block;
+}
+.taxonomy-term-pg ul.video-grid-shows li a span.overlay {
+  height: 8em;
+  font-weight: 700;
+  position: relative;
+  bottom: 0;
+  background-color:#222222;
+  color: white;
+  opacity: 1;
+  padding: 10px;
+  display: block;
+}
+.taxonomy-term-pg ul.video-grid-shows li a span.overlay .title {
+  font-size:1em;
+}
+.taxonomy-term-pg ul.video-grid-shows li a span.overlay .series-title,
+.taxonomy-term-pg ul.video-grid-shows li a span.overlay .watch-now-mobile  {
+  font-size:.75em;
+}
+@media all and (max-width: 768px) {
+  .taxonomy-term-pg ul.video-grid-shows li {
+    width: 50%;
+  }
+}
+@media all and (max-width: 500px) {
+  .taxonomy-term-pg ul.video-grid-shows {
+    display: block;
+  }
+  .taxonomy-term-pg ul.video-grid-shows li {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}
