@@ -1,6 +1,0 @@
-name = Community Features
-description = Provides community building features such as following users, liking videos and a video feed.
-core = 7.x
-
-dependencies[] = flag
-dependencies[] = views

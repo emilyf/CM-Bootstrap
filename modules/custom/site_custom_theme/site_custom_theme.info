@@ -1,7 +1,0 @@
-name = Site Custom Theme
-description = Customizations for theme switching based on roles/paths.
-core = 7.x
-package = CM Bootstrap
-
-dependencies [] =
-dependencies [] =

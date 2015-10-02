@@ -1,7 +1,0 @@
-name = Custom Video Lists
-description = Custom Video Lists
-core = 7.x
-package = CM Bootstrap
-
-;scripts[] = js/custom_video_lists.js
-;stylesheets[all][] = css/custom_video_lists.css
