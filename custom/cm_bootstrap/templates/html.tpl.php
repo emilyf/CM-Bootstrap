@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php if(isset($cm_og_image)): ?>
     <meta property="og:image" content="<?php print $cm_og_image; ?>" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="281" />
   <?php endif; ?>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
@@ -19,6 +21,21 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <?php print $scripts; ?>
+  <!-- START: Full Page Fade-In Effect -->
+  <!--<style>
+    #main {
+      opacity:0;
+    }
+  </style>
+  <script>
+    (function ($, Drupal) { 
+      $(document).ready(function (){
+        //$('#main').css('opacity', '0').fadeTo(250, 1,'swing');
+        $('#main').fadeTo(750, 1,'swing'); 
+      });
+    })(jQuery, Drupal);
+  </script>-->
+  <!-- END: Full Page Fade-In Effect -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">

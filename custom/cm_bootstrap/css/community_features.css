@@ -142,6 +142,9 @@ ul.user-shows-likes li a span.overlay .watch-now-mobile  {
 .user-profile-third-col {
   padding-left:60px;
 }
+.user-profile-left-col {
+  z-index:1000;
+}
 @media (max-width: 600px) { 
   .user-profile-left-col,
   .user-profile-right-col {
@@ -154,7 +157,8 @@ ul.user-shows-likes li a span.overlay .watch-now-mobile  {
 @media (max-width: 996px) { 
   .user-profile-third-col {
     padding-left:0px;
-    margin-top:315px;
+    /*margin-top:315px;*/
+    margin-top:405px;
   }
   /*.user-statistics li a {
     width:80px;

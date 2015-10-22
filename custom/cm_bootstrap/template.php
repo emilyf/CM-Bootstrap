@@ -98,3 +98,29 @@ function cm_bootstrap_menu_link(array $variables) {
   $output = l($element ['#title'], $element ['#href'], $element ['#localized_options']);
   return '<li' . drupal_attributes($element ['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
+
+/**
+ * Implements template_preprocess_search_result(&$variables)
+ */
+function cm_bootstrap_preprocess_search_result(&$variables) {
+  //dpm($variables);
+  if (isset($variables['result']['node'])) {
+    $node = $variables['result']['node'];
+    if (isset($node->field_show_vod['und'])) {        
+      switch($node->field_show_vod['und'][0]['filemime']) {
+        case 'video/cloudcast':
+          $image_uri = 'media-cloudcast/' . $node->field_show_vod['und'][0]['filename']  . '.jpg';
+          break;
+        case 'video/vimeo':
+          $image_uri = str_replace('vimeo://v/', 'media-vimeo/', $node->field_show_vod['und'][0]['uri']);
+          $image_uri = $image_uri . '.jpg';
+          break;
+        case 'video/youtube':  
+          $image_uri = str_replace('youtube://v/', 'media-youtube/', $node->field_show_vod['und'][0]['uri']);
+          $image_uri = $image_uri . '.jpg';
+          break;
+      }
+      $variables['cm_show_img'] = image_style_url('medium', $image_uri);
+    }
+  }
+}

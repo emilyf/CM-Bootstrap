@@ -62,6 +62,7 @@
     
        
       <section<?php print $content_column_class; ?>>
+      <!--<section class="col-lg-9 col-md-8 col-sm-12">-->
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
@@ -73,8 +74,11 @@
         <?php endif; ?>-->
         <?php print render($title_suffix); ?>
         <?php print $messages; ?>
-        <?php if (!empty($tabs)): ?>
-          <?php //print render($tabs); ?>
+        <?php if (!empty($tabs) && (current_path() == 'user/login') 
+          || (current_path() == 'user/register')
+          || (current_path() == 'user/password')
+          || (current_path() == 'user')): ?>
+          <?php print render($tabs); ?>
         <?php endif; ?>
         <?php if (!empty($page['help'])): ?>
           <?php print render($page['help']); ?>
@@ -86,6 +90,7 @@
       </section>
   
       <?php if (!empty($page['sidebar_second'])): ?>
+        <!--<aside class="col-lg-3 col-md-4 col-sm-12" role="complementary">-->
         <aside class="col-sm-3" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->

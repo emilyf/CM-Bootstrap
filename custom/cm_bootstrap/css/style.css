@@ -453,7 +453,7 @@ a.navbar-brand {
 
 
 /* START: User/Admin Screens */
-.page-user .form-control {
+.page-user .form-control:not(.page-user .form-control #edit-search-block-form--2) {
   width:50%;
 }
 
@@ -1113,4 +1113,31 @@ h1.page-header {
   padding-left: 20px;
   width: 1190px;
   margin: 0 auto;
+}
+
+.video-container-vimeo {
+  position: relative;
+  padding-bottom: 60.25%;
+  padding-top: 0px;
+  height: 0;
+  overflow: hidden;
+}
+
+.producer-hub-button {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.producer-hub-button:hover {
+  background:whitesmoke;
+} 
+
+#mailchimp-signup-subscribe-block-mailchimp-sign-up-form label {
+  color:#333232;
+}
+#mailchimp-signup-subscribe-block-mailchimp-sign-up-form button#edit-submit--3 {
+  background:#799900;
+  border-color:#799900;
 }

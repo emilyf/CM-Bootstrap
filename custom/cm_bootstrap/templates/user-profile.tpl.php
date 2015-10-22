@@ -50,7 +50,7 @@ $account = $elements['#account'];
       ?>
       <img class="user-avatar-large" src="<?php print $user_img_src; ?>"/>
       <div class="user-details">
-        <div class="btn btn-default">        
+        <div class="btn btn-default">      
           <?php
           if ($account->uid === $user->uid) {
             echo "<a href='/user/{$user->uid}/edit'>Edit Profile</a>";
@@ -58,6 +58,11 @@ $account = $elements['#account'];
           echo flag_create_link('cf_follow_user', $account->uid);
           ?>
         </div>
+        <?php if (!empty($account->field_user_bio)): ?>
+          <p style="padding: 10px 2px;">
+            <?php print $account->field_user_bio[LANGUAGE_NONE][0]['value']; ?>
+          </p>
+        <?php endif; ?>
       </div>
     </div>
     <div class="col-lg-9 col-md-9 col-xs-8 user-profile-right-col">
