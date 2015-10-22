@@ -34,6 +34,23 @@ $data = array(
       'disabled_changed' => FALSE,
       'bc_entity_type' => 'node',
     ),
+    'article' => (object) array(
+      'type' => 'article',
+      'name' => 'Article',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'article',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
     'blog' => (object) array(
       'type' => 'blog',
       'name' => 'Blog entry',
@@ -815,7 +832,7 @@ $data = array(
         ),
       ),
       'field_permissions' => array(
-        'type' => '0',
+        'type' => '2',
       ),
       'field_name' => 'field_cm_project_types',
       'type' => 'taxonomy_term_reference',
@@ -1597,6 +1614,97 @@ $data = array(
         ),
       ),
     ),
+    'field_image' => array(
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_image' => array(
+                'fid' => 'field_image_fid',
+                'alt' => 'field_image_alt',
+                'title' => 'field_image_title',
+                'width' => 'field_image_width',
+                'height' => 'field_image_height',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_image' => array(
+                'fid' => 'field_image_fid',
+                'alt' => 'field_image_alt',
+                'title' => 'field_image_title',
+                'width' => 'field_image_width',
+                'height' => 'field_image_height',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'entity_types' => array(),
+      'translatable' => '0',
+      'foreign keys' => array(
+        'fid' => array(
+          'table' => 'file_managed',
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+        ),
+      ),
+      'field_name' => 'field_image',
+      'type' => 'image',
+      'module' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'fid' => array(
+          'description' => 'The {file_managed}.fid being referenced in this field.',
+          'type' => 'int',
+          'not null' => FALSE,
+          'unsigned' => TRUE,
+        ),
+        'alt' => array(
+          'description' => 'Alternative image text, for the image\'s \'alt\' attribute.',
+          'type' => 'varchar',
+          'length' => 512,
+          'not null' => FALSE,
+        ),
+        'title' => array(
+          'description' => 'Image title text, for the image\'s \'title\' attribute.',
+          'type' => 'varchar',
+          'length' => 1024,
+          'not null' => FALSE,
+        ),
+        'width' => array(
+          'description' => 'The width of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+        'height' => array(
+          'description' => 'The height of the image in pixels.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'article',
+        ),
+      ),
+    ),
     'field_jpanel_bg_color' => array(
       'translatable' => '0',
       'entity_types' => array(),
@@ -2111,6 +2219,67 @@ $data = array(
         ),
       ),
     ),
+    'field_moderation_content' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'allowed_values' => array(
+          1 => 'Needs Review',
+          2 => 'Approved',
+          3 => 'Declined',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_moderation_content' => array(
+                'value' => 'field_moderation_content_value',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_moderation_content' => array(
+                'value' => 'field_moderation_content_value',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'field_name' => 'field_moderation_content',
+      'type' => 'list_text',
+      'module' => 'list',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'cm_show',
+          1 => 'cm_project',
+        ),
+      ),
+    ),
     'field_partner' => array(
       'translatable' => '0',
       'entity_types' => array(),
@@ -2416,6 +2585,7 @@ $data = array(
           4 => 'Copied to Hypercaster',
           5 => 'Pushed to Cloudcast',
           6 => 'Archived',
+          7 => 'Sponsored',
         ),
         'allowed_values_function' => '',
       ),
@@ -2559,6 +2729,65 @@ $data = array(
       'bundles' => array(
         'node' => array(
           0 => 'cm_project',
+        ),
+      ),
+    ),
+    'field_show_display_notes' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'allowed_values' => array(
+          1 => 'Yes',
+          2 => 'No',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_show_display_notes' => array(
+                'value' => 'field_show_display_notes_value',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_show_display_notes' => array(
+                'value' => 'field_show_display_notes_value',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'field_name' => 'field_show_display_notes',
+      'type' => 'list_text',
+      'module' => 'list',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'cm_show',
         ),
       ),
     ),
@@ -2914,6 +3143,81 @@ $data = array(
           'type' => 'int',
           'unsigned' => TRUE,
           'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'cm_show',
+        ),
+      ),
+    ),
+    'field_show_producer' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'target_type' => 'user',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+        ),
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_show_producer' => array(
+                'target_id' => 'field_show_producer_target_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_show_producer' => array(
+                'target_id' => 'field_show_producer_target_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'users' => array(
+          'table' => 'users',
+          'columns' => array(
+            'target_id' => 'uid',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'field_name' => 'field_show_producer',
+      'type' => 'entityreference',
+      'module' => 'entityreference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '5',
+      'deleted' => '0',
+      'columns' => array(
+        'target_id' => array(
+          'description' => 'The id of the target entity.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
         ),
       ),
       'bundles' => array(
@@ -3391,6 +3695,72 @@ $data = array(
           'description' => 'The height of the image in pixels.',
           'type' => 'int',
           'unsigned' => TRUE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'slider',
+        ),
+      ),
+    ),
+    'field_slideshow_weight' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'allowed_values' => array(
+          1 => '1',
+          2 => '2',
+          3 => '3',
+          4 => '4',
+          5 => '5',
+          6 => '6',
+          7 => '7',
+          8 => '8',
+          9 => '9',
+          10 => '10',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_slideshow_weight' => array(
+                'value' => 'field_slideshow_weight_value',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_slideshow_weight' => array(
+                'value' => 'field_slideshow_weight_value',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'field_name' => 'field_slideshow_weight',
+      'type' => 'list_integer',
+      'module' => 'list',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'int',
+          'not null' => FALSE,
         ),
       ),
       'bundles' => array(
@@ -4186,7 +4556,7 @@ $data = array(
             'rows' => 20,
             'summary_rows' => 5,
           ),
-          'weight' => '3',
+          'weight' => -4,
           'module' => 'text',
         ),
         'settings' => array(
@@ -4217,10 +4587,59 @@ $data = array(
         'default_value' => NULL,
         'field_name' => 'body',
         'entity_type' => 'node',
-        'bundle' => 'blog',
+        'bundle' => 'article',
         'deleted' => '0',
       ),
       3 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '3',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '0',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_summary_or_trimmed',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
+            'weight' => 0,
+          ),
+          'full' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '0',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'blog',
+        'deleted' => '0',
+      ),
+      4 => array(
         'label' => 'Body',
         'widget' => array(
           'type' => 'text_textarea_with_summary',
@@ -4262,7 +4681,7 @@ $data = array(
         'bundle' => 'genre',
         'deleted' => '0',
       ),
-      4 => array(
+      5 => array(
         'label' => 'Body',
         'widget' => array(
           'type' => 'text_textarea_with_summary',
@@ -4304,7 +4723,7 @@ $data = array(
         'bundle' => 'page',
         'deleted' => '0',
       ),
-      5 => array(
+      6 => array(
         'label' => 'Body',
         'widget' => array(
           'weight' => '2',
@@ -4323,7 +4742,7 @@ $data = array(
         ),
         'display' => array(
           'default' => array(
-            'label' => 'hidden',
+            'label' => 'above',
             'type' => 'text_default',
             'weight' => '4',
             'settings' => array(),
@@ -4578,18 +4997,24 @@ $data = array(
           'default' => array(
             'label' => 'above',
             'type' => 'image',
+            'weight' => '1',
             'settings' => array(
               'image_style' => '',
               'image_link' => '',
             ),
             'module' => 'image',
-            'weight' => 1,
           ),
           'teaser' => array(
             'type' => 'hidden',
             'label' => 'above',
             'settings' => array(),
             'weight' => 0,
+          ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '1',
+            'settings' => array(),
           ),
         ),
         'required' => 0,
@@ -4698,6 +5123,18 @@ $data = array(
             'label' => 'above',
             'settings' => array(),
             'module' => 'taxonomy',
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
           ),
         ),
         'settings' => array(
@@ -4852,7 +5289,7 @@ $data = array(
       0 => array(
         'label' => 'Custom Video List',
         'widget' => array(
-          'weight' => '8',
+          'weight' => '3',
           'type' => 'options_select',
           'module' => 'options',
           'active' => 1,
@@ -4873,6 +5310,18 @@ $data = array(
             'label' => 'above',
             'settings' => array(),
             'weight' => 0,
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '15',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '15',
+            'settings' => array(),
           ),
         ),
         'required' => 0,
@@ -4908,13 +5357,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '13',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '17',
+            'weight' => '16',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '14',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '14',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '14',
@@ -5039,7 +5506,7 @@ $data = array(
       0 => array(
         'label' => 'Description',
         'widget' => array(
-          'weight' => '3',
+          'weight' => '4',
           'type' => 'text_textarea_with_summary',
           'module' => 'text',
           'active' => 1,
@@ -5066,6 +5533,20 @@ $data = array(
             'label' => 'above',
             'settings' => array(),
             'weight' => 0,
+          ),
+          'search_index' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '12',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'search_result' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '12',
+            'settings' => array(),
+            'module' => 'text',
           ),
         ),
         'required' => 0,
@@ -5106,18 +5587,40 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
-          'cm_show_meta' => array(
-            'label' => 'hidden',
-            'type' => 'text_default',
-            'weight' => '1',
-            'settings' => array(),
-            'module' => 'text',
-          ),
           'full' => array(
             'label' => 'hidden',
             'type' => 'hidden',
             'weight' => '3',
             'settings' => array(),
+          ),
+          'cm_show_meta' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '3',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'rss' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '3',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '3',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'search_result' => array(
+            'label' => 'hidden',
+            'type' => 'text_trimmed',
+            'weight' => '3',
+            'settings' => array(
+              'trim_length' => 600,
+            ),
+            'module' => 'text',
           ),
         ),
         'required' => 0,
@@ -5133,7 +5636,7 @@ $data = array(
       0 => array(
         'label' => 'Expected Duration',
         'widget' => array(
-          'weight' => '7',
+          'weight' => '12',
           'type' => 'hms_default_widget',
           'module' => 'hms_field',
           'active' => 0,
@@ -5157,13 +5660,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '12',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '16',
+            'weight' => '15',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '13',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '13',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '13',
@@ -5183,7 +5704,7 @@ $data = array(
       0 => array(
         'label' => 'Expected Filename',
         'widget' => array(
-          'weight' => '6',
+          'weight' => '11',
           'type' => 'text_textfield',
           'module' => 'text',
           'active' => 1,
@@ -5213,13 +5734,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '11',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '15',
+            'weight' => '14',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '12',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '12',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '12',
@@ -5288,7 +5827,7 @@ $data = array(
       0 => array(
         'label' => 'Genres',
         'widget' => array(
-          'weight' => '9',
+          'weight' => '15',
           'type' => 'entityreference_autocomplete',
           'module' => 'entityreference',
           'active' => 1,
@@ -5314,13 +5853,37 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
-          'cm_show_meta' => array(
+          'full' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '18',
+            'weight' => '14',
             'settings' => array(),
           ),
-          'full' => array(
+          'cm_show_meta' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'weight' => '8',
+            'settings' => array(
+              'link' => 1,
+            ),
+            'module' => 'entityreference',
+          ),
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '15',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'weight' => '15',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '15',
@@ -5389,7 +5952,7 @@ $data = array(
       0 => array(
         'label' => 'Origin',
         'widget' => array(
-          'weight' => '4',
+          'weight' => '10',
           'type' => 'options_buttons',
           'module' => 'options',
           'active' => 1,
@@ -5411,13 +5974,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '13',
+            'weight' => '12',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '10',
@@ -5430,6 +6011,59 @@ $data = array(
         'field_name' => 'field_how_program_origin',
         'entity_type' => 'node',
         'bundle' => 'cm_show',
+        'deleted' => '0',
+      ),
+    ),
+    'field_image' => array(
+      0 => array(
+        'label' => 'Image',
+        'description' => 'Upload an image to go with this article.',
+        'required' => FALSE,
+        'settings' => array(
+          'file_directory' => 'field/image',
+          'file_extensions' => 'png gif jpg jpeg',
+          'max_filesize' => '',
+          'max_resolution' => '',
+          'min_resolution' => '',
+          'alt_field' => TRUE,
+          'title_field' => '',
+          'default_image' => 0,
+          'user_register_form' => FALSE,
+        ),
+        'widget' => array(
+          'type' => 'image_image',
+          'settings' => array(
+            'progress_indicator' => 'throbber',
+            'preview_image_style' => 'thumbnail',
+          ),
+          'weight' => -1,
+          'module' => 'image',
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'settings' => array(
+              'image_style' => 'large',
+              'image_link' => '',
+            ),
+            'weight' => -1,
+            'module' => 'image',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'image',
+            'settings' => array(
+              'image_style' => 'medium',
+              'image_link' => 'content',
+            ),
+            'weight' => -1,
+            'module' => 'image',
+          ),
+        ),
+        'field_name' => 'field_image',
+        'entity_type' => 'node',
+        'bundle' => 'article',
         'deleted' => '0',
       ),
     ),
@@ -5755,11 +6389,129 @@ $data = array(
         'deleted' => '0',
       ),
     ),
+    'field_moderation_content' => array(
+      0 => array(
+        'label' => 'Moderation',
+        'widget' => array(
+          'weight' => '42',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'list_default',
+            'settings' => array(),
+            'module' => 'list',
+            'weight' => 18,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_index' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_result' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_moderation_content',
+        'entity_type' => 'node',
+        'bundle' => 'cm_project',
+        'deleted' => '0',
+      ),
+      1 => array(
+        'label' => 'Moderation',
+        'widget' => array(
+          'weight' => '7',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'list_default',
+            'settings' => array(),
+            'module' => 'list',
+            'weight' => 19,
+          ),
+          'full' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'rss' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_index' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_result' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'cm_show_meta' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => array(
+          0 => array(
+            'value' => '1',
+          ),
+        ),
+        'field_name' => 'field_moderation_content',
+        'entity_type' => 'node',
+        'bundle' => 'cm_show',
+        'deleted' => '0',
+      ),
+    ),
     'field_partner' => array(
       0 => array(
         'label' => 'Partner',
         'widget' => array(
-          'weight' => '10',
+          'weight' => '4',
           'type' => 'entityreference_autocomplete',
           'module' => 'entityreference',
           'active' => 1,
@@ -5788,6 +6540,24 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'weight' => '13',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'weight' => '13',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
         ),
         'required' => 0,
         'description' => '',
@@ -5800,7 +6570,7 @@ $data = array(
       1 => array(
         'label' => 'Partner',
         'widget' => array(
-          'weight' => '3',
+          'weight' => '9',
           'type' => 'entityreference_autocomplete',
           'module' => 'entityreference',
           'active' => 1,
@@ -5826,16 +6596,37 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '5',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'inline',
             'type' => 'entityreference_label',
-            'weight' => '3',
+            'weight' => '5',
             'settings' => array(
-              'link' => 0,
+              'link' => FALSE,
             ),
             'module' => 'entityreference',
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '5',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'weight' => '5',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '5',
@@ -6042,13 +6833,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '8',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '10',
+            'weight' => '11',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '9',
@@ -6068,7 +6877,7 @@ $data = array(
       0 => array(
         'label' => 'Series Image',
         'widget' => array(
-          'weight' => '9',
+          'weight' => '3',
           'type' => 'media_generic',
           'module' => 'media',
           'active' => 1,
@@ -6118,12 +6927,94 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '14',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '14',
+            'settings' => array(),
+          ),
         ),
         'required' => 0,
         'description' => '',
         'field_name' => 'field_series_image',
         'entity_type' => 'node',
         'bundle' => 'cm_project',
+        'deleted' => '0',
+      ),
+    ),
+    'field_show_display_notes' => array(
+      0 => array(
+        'label' => 'Show Notes',
+        'widget' => array(
+          'weight' => '13',
+          'type' => 'options_buttons',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '17',
+            'settings' => array(),
+          ),
+          'cm_show_meta' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '7',
+            'settings' => array(),
+          ),
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => '',
+        'default_value' => array(
+          0 => array(
+            'value' => '2',
+          ),
+        ),
+        'field_name' => 'field_show_display_notes',
+        'entity_type' => 'node',
+        'bundle' => 'cm_show',
         'deleted' => '0',
       ),
     ),
@@ -6161,13 +7052,32 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '2',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'inline',
             'type' => 'hidden',
-            'weight' => '4',
+            'weight' => '9',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '2',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'inline',
+            'type' => 'text_default',
+            'weight' => '2',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'search_result' => array(
             'label' => 'inline',
             'type' => 'hidden',
             'weight' => '2',
@@ -6198,7 +7108,7 @@ $data = array(
         'settings' => array(
           'file_directory' => 'show-files',
           'file_extensions' => 'txt pdf xls doc rtf',
-          'max_filesize' => '6',
+          'max_filesize' => '6 MB',
           'description_field' => 1,
           'user_register_form' => FALSE,
         ),
@@ -6215,13 +7125,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'hidden',
             'type' => 'hidden',
-            'weight' => '12',
+            'weight' => '8',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'hidden',
             'type' => 'hidden',
             'weight' => '10',
@@ -6240,7 +7168,7 @@ $data = array(
       0 => array(
         'label' => 'Date of First Play',
         'widget' => array(
-          'weight' => '2',
+          'weight' => '8',
           'type' => 'date_popup',
           'module' => 'date',
           'active' => 1,
@@ -6264,7 +7192,7 @@ $data = array(
           'default' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '8',
+            'weight' => '7',
             'settings' => array(),
           ),
           'teaser' => array(
@@ -6273,16 +7201,41 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
-          'cm_show_meta' => array(
-            'label' => 'above',
-            'type' => 'hidden',
-            'weight' => '8',
-            'settings' => array(),
-          ),
           'full' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '8',
+            'weight' => '7',
+            'settings' => array(),
+          ),
+          'cm_show_meta' => array(
+            'label' => 'inline',
+            'type' => 'date_default',
+            'weight' => '2',
+            'settings' => array(
+              'format_type' => 'medium',
+              'fromto' => 'both',
+              'multiple_number' => '',
+              'multiple_from' => '',
+              'multiple_to' => '',
+            ),
+            'module' => 'date',
+          ),
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '7',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '7',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '7',
             'settings' => array(),
           ),
         ),
@@ -6298,7 +7251,7 @@ $data = array(
       0 => array(
         'label' => 'Notes',
         'widget' => array(
-          'weight' => '8',
+          'weight' => '14',
           'type' => 'text_textarea_with_summary',
           'module' => 'text',
           'active' => 1,
@@ -6325,13 +7278,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '14',
+            'weight' => '13',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '11',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '11',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '11',
@@ -6367,7 +7338,7 @@ $data = array(
           'default' => array(
             'label' => 'inline',
             'type' => 'hidden',
-            'weight' => '7',
+            'weight' => '6',
             'settings' => array(),
           ),
           'teaser' => array(
@@ -6376,17 +7347,35 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
-          'cm_show_meta' => array(
-            'label' => 'above',
-            'type' => 'taxonomy_term_reference_link',
-            'weight' => '7',
-            'settings' => array(),
-            'module' => 'taxonomy',
-          ),
           'full' => array(
             'label' => 'inline',
             'type' => 'hidden',
-            'weight' => '7',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'cm_show_meta' => array(
+            'label' => 'above',
+            'type' => 'taxonomy_term_reference_link',
+            'weight' => '5',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+          'rss' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '6',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '6',
             'settings' => array(),
           ),
         ),
@@ -6394,6 +7383,82 @@ $data = array(
         'description' => '',
         'default_value' => NULL,
         'field_name' => 'field_show_participants',
+        'entity_type' => 'node',
+        'bundle' => 'cm_show',
+        'deleted' => '0',
+      ),
+    ),
+    'field_show_producer' => array(
+      0 => array(
+        'label' => 'Producer',
+        'widget' => array(
+          'weight' => '6',
+          'type' => 'entityreference_autocomplete',
+          'module' => 'entityreference',
+          'active' => 1,
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'path' => '',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'entityreference_label',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+            'weight' => 18,
+          ),
+          'cm_show_meta' => array(
+            'label' => 'inline',
+            'type' => 'entityreference_label',
+            'weight' => '0',
+            'settings' => array(
+              'link' => 1,
+            ),
+            'module' => 'entityreference',
+          ),
+          'full' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'rss' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_index' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+          'search_result' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => '',
+        'default_value' => NULL,
+        'field_name' => 'field_show_producer',
         'entity_type' => 'node',
         'bundle' => 'cm_show',
         'deleted' => '0',
@@ -6436,10 +7501,16 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '1',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
-            'label' => 'hidden',
+            'label' => 'inline',
             'type' => 'date_default',
-            'weight' => '0',
+            'weight' => '1',
             'settings' => array(
               'format_type' => 'short',
               'fromto' => 'both',
@@ -6449,7 +7520,19 @@ $data = array(
             ),
             'module' => 'date',
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '1',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '1',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'inline',
             'type' => 'hidden',
             'weight' => '1',
@@ -6515,18 +7598,45 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
-          'cm_show_meta' => array(
-            'label' => 'hidden',
-            'type' => 'hidden',
-            'weight' => '5',
-            'settings' => array(),
-          ),
           'full' => array(
             'label' => 'hidden',
             'type' => 'file_rendered',
             'weight' => '0',
             'settings' => array(
               'file_view_mode' => 'full',
+            ),
+            'module' => 'file_entity',
+          ),
+          'cm_show_meta' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '10',
+            'settings' => array(),
+          ),
+          'rss' => array(
+            'label' => 'hidden',
+            'type' => 'file_rendered',
+            'weight' => '0',
+            'settings' => array(
+              'file_view_mode' => 'full',
+            ),
+            'module' => 'file_entity',
+          ),
+          'search_index' => array(
+            'label' => 'hidden',
+            'type' => 'file_rendered',
+            'weight' => '0',
+            'settings' => array(
+              'file_view_mode' => 'full',
+            ),
+            'module' => 'file_entity',
+          ),
+          'search_result' => array(
+            'label' => 'hidden',
+            'type' => 'file_rendered',
+            'weight' => '0',
+            'settings' => array(
+              'file_view_mode' => 'teaser',
             ),
             'module' => 'file_entity',
           ),
@@ -6745,8 +7855,83 @@ $data = array(
         'deleted' => '0',
       ),
     ),
+    'field_slideshow_weight' => array(
+      0 => array(
+        'label' => 'Order / Weight',
+        'widget' => array(
+          'weight' => '41',
+          'type' => 'options_select',
+          'module' => 'options',
+          'active' => 1,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'list_default',
+            'settings' => array(),
+            'module' => 'list',
+            'weight' => 6,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 1,
+        'description' => 'Lower value will come first, higher values will come later.',
+        'default_value' => NULL,
+        'field_name' => 'field_slideshow_weight',
+        'entity_type' => 'node',
+        'bundle' => 'slider',
+        'deleted' => '0',
+      ),
+    ),
     'field_tags' => array(
       0 => array(
+        'label' => 'Tags',
+        'description' => 'Enter a comma-separated list of words to describe your content.',
+        'widget' => array(
+          'type' => 'taxonomy_autocomplete',
+          'weight' => -4,
+          'settings' => array(
+            'size' => 60,
+            'autocomplete_path' => 'taxonomy/autocomplete',
+          ),
+          'module' => 'taxonomy',
+        ),
+        'display' => array(
+          'default' => array(
+            'type' => 'taxonomy_term_reference_link',
+            'weight' => 10,
+            'label' => 'above',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+          'teaser' => array(
+            'type' => 'taxonomy_term_reference_link',
+            'weight' => 10,
+            'label' => 'above',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+        ),
+        'settings' => array(
+          'user_register_form' => FALSE,
+        ),
+        'required' => FALSE,
+        'default_value' => NULL,
+        'field_name' => 'field_tags',
+        'entity_type' => 'node',
+        'bundle' => 'article',
+        'deleted' => '0',
+      ),
+      1 => array(
         'label' => 'Tags',
         'widget' => array(
           'weight' => '7',
@@ -6774,14 +7959,33 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '8',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'taxonomy_term_reference_link',
+            'weight' => '6',
+            'settings' => array(),
+            'module' => 'taxonomy',
+          ),
+          'rss' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '8',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'inline',
+            'type' => 'taxonomy_term_reference_plain',
             'weight' => '8',
             'settings' => array(),
             'module' => 'taxonomy',
           ),
-          'full' => array(
+          'search_result' => array(
             'label' => 'inline',
             'type' => 'hidden',
             'weight' => '8',
@@ -6869,13 +8073,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '16',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '20',
+            'weight' => '18',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '17',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '17',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '17',
@@ -6899,7 +8121,7 @@ $data = array(
       0 => array(
         'label' => 'Video Grid',
         'widget' => array(
-          'weight' => '11',
+          'weight' => '5',
           'type' => 'options_select',
           'module' => 'options',
           'active' => 1,
@@ -6921,6 +8143,18 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '17',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '17',
+            'settings' => array(),
+          ),
         ),
         'required' => 0,
         'description' => '',
@@ -6933,7 +8167,7 @@ $data = array(
       1 => array(
         'label' => 'Video Grid',
         'widget' => array(
-          'weight' => '10',
+          'weight' => '16',
           'type' => 'options_select',
           'module' => 'options',
           'active' => 1,
@@ -6955,13 +8189,31 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '15',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'hidden',
-            'weight' => '19',
+            'weight' => '17',
             'settings' => array(),
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '16',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '16',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '16',
@@ -7169,7 +8421,7 @@ $data = array(
       0 => array(
         'label' => 'Links',
         'widget' => array(
-          'weight' => '4',
+          'weight' => '5',
           'type' => 'link_field',
           'module' => 'link',
           'active' => 0,
@@ -7216,6 +8468,20 @@ $data = array(
             'label' => 'above',
             'settings' => array(),
             'weight' => 0,
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'link_default',
+            'weight' => '16',
+            'settings' => array(),
+            'module' => 'link',
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'link_default',
+            'weight' => '16',
+            'settings' => array(),
+            'module' => 'link',
           ),
         ),
         'required' => 0,
@@ -7276,14 +8542,32 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'above',
             'type' => 'link_default',
-            'weight' => '9',
+            'weight' => '7',
             'settings' => array(),
             'module' => 'link',
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '9',
+            'settings' => array(),
+          ),
+          'search_result' => array(
             'label' => 'above',
             'type' => 'hidden',
             'weight' => '9',
@@ -7305,7 +8589,7 @@ $data = array(
         'description' => 'Is this an active series?',
         'display_label' => 1,
         'widget' => array(
-          'weight' => '12',
+          'weight' => '6',
           'type' => 'options_onoff',
           'module' => 'options',
           'active' => 1,
@@ -7343,6 +8627,18 @@ $data = array(
             'label' => 'above',
             'settings' => array(),
             'weight' => 0,
+          ),
+          'search_index' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '11',
+            'settings' => array(),
+          ),
+          'search_result' => array(
+            'label' => 'above',
+            'type' => 'hidden',
+            'weight' => '11',
+            'settings' => array(),
           ),
         ),
         'settings' => array(
@@ -7405,14 +8701,35 @@ $data = array(
             'settings' => array(),
             'weight' => 0,
           ),
+          'full' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '4',
+            'settings' => array(),
+          ),
           'cm_show_meta' => array(
             'label' => 'inline',
             'type' => 'og_list_default',
-            'weight' => '2',
+            'weight' => '4',
             'settings' => array(),
             'module' => 'og_ui',
           ),
-          'full' => array(
+          'rss' => array(
+            'label' => 'inline',
+            'type' => 'hidden',
+            'weight' => '4',
+            'settings' => array(),
+          ),
+          'search_index' => array(
+            'label' => 'inline',
+            'type' => 'entityreference_label',
+            'weight' => '4',
+            'settings' => array(
+              'link' => FALSE,
+            ),
+            'module' => 'entityreference',
+          ),
+          'search_result' => array(
             'label' => 'inline',
             'type' => 'hidden',
             'weight' => '4',
@@ -7444,8 +8761,8 @@ $data = array(
       'label' => 'Producer',
       'weight' => '0',
       'children' => array(
-        0 => 'field_cm_project_types',
-        1 => 'field_description',
+        0 => 'field_description',
+        1 => 'field_series_image',
         2 => 'field_web_resources',
         3 => 'title',
       ),
@@ -7473,9 +8790,9 @@ $data = array(
       'label' => 'Staff',
       'weight' => '1',
       'children' => array(
-        0 => 'group_group',
-        1 => 'field_partner',
-        2 => 'field_series_image',
+        0 => 'field_cm_project_types',
+        1 => 'group_group',
+        2 => 'field_partner',
         3 => 'field_custom_video_list',
         4 => 'field_video_grid',
       ),
@@ -7501,7 +8818,7 @@ $data = array(
       'type' => 'Normal',
       'export_type' => 1,
       'label' => '',
-      'weight' => '7',
+      'weight' => '8',
       'children' => array(
         0 => 'field_tags',
         1 => 'field_web_resources',
@@ -7577,8 +8894,11 @@ $data = array(
         3 => 'field_expected_filename',
         4 => 'field_expected_duration',
         5 => 'field_partner',
-        6 => 'field_genres',
-        7 => 'field_video_grid',
+        6 => 'field_video_grid',
+        7 => 'field_genres',
+        8 => 'field_show_display_notes',
+        9 => 'field_show_producer',
+        10 => 'field_moderation_content',
       ),
       'format_type' => 'tab',
       'format_settings' => array(
@@ -7601,19 +8921,20 @@ $data = array(
       'table' => 'field_group',
       'type' => 'Normal',
       'export_type' => 1,
-      'label' => 'Media',
+      'label' => 'Embed Video',
       'weight' => '5',
       'children' => array(
         0 => 'field_show_vod',
       ),
       'format_type' => 'tab',
       'format_settings' => array(
-        'formatter' => 'closed',
+        'label' => 'Embed Video',
         'instance_settings' => array(
-          'description' => '',
-          'classes' => 'group-three-show field-group-tab',
           'required_fields' => 1,
+          'classes' => 'group-three-show field-group-tab',
+          'description' => '',
         ),
+        'formatter' => 'closed',
       ),
     ),
     'group_admin|node|cm_show|form' => (object) array(
@@ -7657,25 +8978,25 @@ $data = array(
       'export_type' => 1,
       'disabled' => FALSE,
       'label' => '',
-      'weight' => '23',
+      'weight' => '6',
       'children' => array(
         0 => 'field_tags',
         1 => 'field_web_resources',
         2 => 'field_show_participants',
+        3 => 'field_genres',
       ),
       'format_type' => 'div',
       'format_settings' => array(
-        'label' => '',
+        'formatter' => 'collapsible',
         'instance_settings' => array(
-          'id' => '',
-          'classes' => 'group-sidebar field-group-div',
           'description' => '',
-          'show_label' => '1',
+          'show_label' => 1,
           'label_element' => 'h3',
           'effect' => 'none',
           'speed' => 'fast',
+          'classes' => 'group-sidebar field-group-div',
+          'id' => '',
         ),
-        'formatter' => 'collapsible',
       ),
     ),
     'group_primary_colors|node|color_scheme|form' => (object) array(
