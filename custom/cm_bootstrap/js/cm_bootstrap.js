@@ -71,17 +71,52 @@
         mouseenter: function() {
           // Check if second-level is visibile to retain hover color.
           if ($(this).find('.second-level').is(':visible')) {
+            //$(this).find('.second-level').css('opacity', '.9');
             $(this).find('a').css('color', '#FFF');
             $(this).find('a').css('background-color', '#FF7700');
           }
         },
         
         mouseleave: function() {
-          //if ($(this).find('.second-level').is(':hidden')) {
-          $(this).find('a').css('background-color', '#1099D6');
-          //}
+          if ($(this).find('.second-level').is(':hidden')) {
+            $(this).find('a').css('background-color', '#0099D9');
+          }
         }        
       });
+      
+      // Second level hover
+      $('nav#site-wrapper-main-menu ul.second-level li').on({        
+        mouseenter: function() {
+          // Check if second-level is visibile to retain hover color.
+          if ($(this).find('.third-level').is(':visible')) {
+            $(this).find('.third-level').css('opacity', '1');
+            $(this).find('a').css('color', '#FFF');
+            $(this).find('a').css('background-color', '#FAA830');
+          }
+        },
+        
+        mouseleave: function() {
+          if ($(this).find('.third-level').is(':hidden')) {
+            $(this).find('a').css('background-color', '#FF7700');
+          }
+        }      
+      });
+      
+      // 3rd level hover
+      /*$('nav#site-wrapper-main-menu ul.third-level li a').on({        
+        mouseenter: function() {
+          console.log('kjhsdfkhjfsdkhsdfhksfdjkhsdfjkhsdf');
+          $(this).css('color', '#000');
+          $(this).css('background', 'red');
+        },
+        
+        mouseleave: function() {
+          //if ($(this).find('.second-level').is(':hidden')) {
+          //$(this).find('a').css('background-color', '#FAA830');
+          //}
+        }      
+      });*/
+
       
       $('nav#site-wrapper-main-menu ul.first-level li.item-2').on({        
         mouseenter: function() {

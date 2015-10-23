@@ -124,3 +124,26 @@ function cm_bootstrap_preprocess_search_result(&$variables) {
     }
   }
 }
+
+/**
+ * - Temporary fix to disable popcorn support under mobile. To be removed when
+ * https://github.com/mozilla/popcorn-js/issues/320 is fixed
+ * - disable popcorn when there are no cue field
+ */
+function cm_bootstrap_preprocess_media_youtube_video(&$variables) {
+  // Skip iOS, until popcorn mobile support is fixed
+  /*$variables['is_iOS'] = FALSE;
+
+  if (_retn_custom_is_ios()) {
+    $variables['is_iOS'] = TRUE;
+  }*/
+
+  // check for cue field
+  $variables['has_cue_points'] = TRUE;
+
+  $file = file_load($variables['popcorn_fid']);
+
+  if (!isset($file->cue_points) || (isset($file->cue_points) && empty($file->cue_points))) {
+    $variables['has_cue_points'] = FALSE;
+  }
+}

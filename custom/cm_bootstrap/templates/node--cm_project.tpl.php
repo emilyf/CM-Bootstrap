@@ -1,3 +1,11 @@
+<style>
+  .default-image {
+    max-width: 770px;
+    width:100%;
+    height:auto;
+  }
+</style>
+
 <?php //dpm($node); ?>
 
 <?php  
@@ -59,6 +67,9 @@
     }    
   }
 ?>
+
+<?php //$iframe_src = NULL; ?>
+
 <div class="row">
   <?php if (isset($iframe_src)): ?>
     <?php //dpm($iframe_src); ?>
@@ -82,6 +93,37 @@
         <?php endif; ?>
       </div>
     </section>
+  <?php else: ?>
+    <section class="col-sm-8">
+      
+      <?php 
+        if (module_exists('site_cp_default_images')) {
+          $file = site_cp_default_images_load_image($node->type);
+          //dpm($file);
+          $image_uri = $file->uri;
+          $default_image = image_style_url('site_cp_default_images_cm_show_video', $image_uri);
+        }
+      ?>
+      <div class="fluid-width-video-wrapper">
+        <img class="default-image" src="<?php print $default_image; ?>"/>
+      </div>
+        
+      <div class="show-meta">
+        <a href="<?php print url('node/' . $node->nid); ?>">
+          <?php print $node->title; ?>
+        </a>
+        <a style="color:#FFF;" href="<?php print url('node/' . $cm_show_node->nid); ?>">
+          <?php print $cm_show_node->title; ?>
+        </a>
+        <?php //dpm($node); ?>
+        <?php if (isset($cm_show_node->field_description['und'][0]['value'])): ?>
+          <p>
+            <?php print custom_block_truncate(strip_tags($cm_show_node->field_description['und'][0]['value']), $length = 200, $options = array('exact' => FALSE, 'ending' => ' . . .')); ?>
+          </p>
+        <?php endif; ?>
+      </div>
+
+    </section>
   <?php endif; ?>
   <aside class="col-sm-4" role="complementary">        
     <?php //dpm($node); ?>
@@ -93,6 +135,8 @@
       <?php print render($social_media_block['content']); ?>
     <?php endif; ?>
     <!-- END: Social Media Block -->
+    <?php hide($content['links']['print_html']); ?>
     <?php print render($content); ?>
+    <?php print render($content['links']['print_html']); ?>
   </aside>
 </div>

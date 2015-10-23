@@ -4,13 +4,18 @@
 
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="recent-videos active">
-      <a href="#recent-video" aria-controls="recent-video" role="tab" data-toggle="tab">Recent Videos</a>
-    </li>  
+    <?php if (empty($cb_show_chapters_block['content'])): ?>
+      <li role="presentation" class="recent-videos active">
+        <a href="#recent-video" aria-controls="recent-video" role="tab" data-toggle="tab">Recent Videos</a>
+      </li>
+    <?php endif; ?>  
     <?php if (!empty($cb_show_chapters_block['content'])): ?>
-    <li role="presentation" class="chapters">
-      <a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters</a>
-    </li>
+      <li role="presentation" class="chapters active">
+        <a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters</a>
+      </li>
+      <li role="presentation" class="recent-videos">
+        <a href="#recent-video" aria-controls="recent-video" role="tab" data-toggle="tab">Recent Videos</a>
+      </li>
     <?php endif; ?>   
     <?php //if (!empty($cb_show_air_dates_block['content'])): ?>
       <li role="presentation" class="airdate">
@@ -20,12 +25,28 @@
   </ul>
   <div class="tab-content">
     <?php if (!empty($cb_show_recent_videos_block['content'])): ?>
-      <div role="tabpanel" class="tab-pane active" id="recent-video">
+      <?php
+        if (empty($cb_show_chapters_block['content'])) {
+          $class = "active";
+        }
+        else {
+          $class = "not-active";
+        }
+      ?>
+      <div role="tabpanel" class="tab-pane <?php print $class; ?>" id="recent-video">
         <?php print render($cb_show_recent_videos_block['content']); ?>
       </div>
     <?php endif; ?>
     <?php if(!empty($cb_show_chapters_block['content'])): ?>
-      <div role="tabpanel" class="tab-pane" id="chapters">
+      <?php
+        if (!empty($cb_show_chapters_block['content'])) {
+          $class = "active";
+        }
+        else {
+          $class = "not-active";
+        }
+      ?>
+      <div role="tabpanel" class="tab-pane <?php print $class; ?>" id="chapters">
         <?php print render($cb_show_chapters_block['content']); ?>
       </div>
     <?php endif; ?>
@@ -44,8 +65,17 @@
   <ul class="bottom-buttons">  
   <?php foreach($show_buttons as $show_button): ?>
     <li>
-      <?php //dpm($show_button); ?>
-      <a href="<?php print $show_button->url; ?>">
+      <?php 
+        //dpm($show_button); 
+        $node = menu_get_object();
+        if ($node) {
+          $url = str_replace('[nid]', $node->nid, $show_button->url);
+        }
+        else {
+          $url = $show_button->url;
+        }
+      ?>
+      <a href="<?php print $url; ?>">
         <span class="glyphicon <?php print $show_button->icon_class; ?>" aria-hidden="true"></span>
         <?php print $show_button->title; ?>
       </a>

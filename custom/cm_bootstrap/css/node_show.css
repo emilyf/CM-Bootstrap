@@ -318,3 +318,35 @@
 ul.cb-show-recent-videos li .watch-now-link {
   font-size:.9em;
 }
+
+.node-type-cm-show #block-system-main .list-inline {
+  display:none !important;
+  visibility:hidden !important;
+}
+#block-custom-block-cb-show-node-meta .col-sm-4 .group-sidebar h3 {
+  display:none;
+}
+
+.video-chapters-cue-points {
+  color: black;
+  padding: 10px 5px 5px 15px;
+  list-style-type: none;
+}
+.video-chapters-cue-points li {
+  padding: 5px 0;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  font-weight: bold;
+}
+.video-chapters-cue-points li a {
+  color: #000 !important;
+}
+.video-chapters-cue-points li a:hover {
+  text-decoration:none;
+  color:#1C9BD7 !important;
+}
+.video-chapters-cue-points li a span.title {
+  font-size: 15px;
+  font-family: "SourceSansProBold",Helvetica,Arial,sans-serif;
+  font-weight:900;
+}

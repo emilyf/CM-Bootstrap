@@ -185,6 +185,9 @@ a.navbar-brand {
   padding: 10px;
   /*border-radius:4px;*/
 }
+.view-tv-schedules.view-display-id-block_1 .views-limit-grouping-group h3 {
+  display:none;
+}
 
 .view-tv-schedules.view-display-id-block_1 .views-row a {
   color:#000;
@@ -281,6 +284,9 @@ a.navbar-brand {
 #block-views-tv-schedules-block-1 {
   margin-bottom: 20px;
 }
+#block-views-tv-schedules-block-1 .view-tv-schedules .nav-pills {
+  display:none;
+}
 
 #block-views-tv-schedules-block-1 button.btn-default {
   border-color:transparent;
@@ -301,6 +307,8 @@ a.navbar-brand {
 
 #block-views-tv-schedules-block-1 .row {
   padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 #block-views-tv-schedules-block-1 .row:nth-child(2) {
@@ -1140,4 +1148,14 @@ h1.page-header {
 #mailchimp-signup-subscribe-block-mailchimp-sign-up-form button#edit-submit--3 {
   background:#799900;
   border-color:#799900;
+}
+
+.view-display-id-page_1 {
+  padding:50px 85px;
+}
+.node-type-cm-project .print_html {
+  margin-left:0px !important;
+}
+.node-type-cm-project.role-anonymous-user .tabs--primary {
+  display:none;
 }

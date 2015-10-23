@@ -44,6 +44,10 @@ nav#site-wrapper-main-menu ul.first-level li a {
   border-color: transparent;
 }
 
+nav#site-wrapper-main-menu ul.first-level li.item-1 > a {
+  padding:43px 45px;
+}
+
 nav#site-wrapper-main-menu ul.first-level li.item-2 a {
   background:#62A744;
 
@@ -56,7 +60,7 @@ nav#site-wrapper-main-menu ul.first-level li a:hover {
 }
 
 nav#site-wrapper-main-menu ul.second-level { 
-  top: 121px;
+  top: 118px;
   z-index: 100;
   border: 0;
   border-top: none;
@@ -64,8 +68,9 @@ nav#site-wrapper-main-menu ul.second-level {
   margin: 0;
   padding: 0;
   border-radius: 0px;
-  background:#FF7700;
-  opacity:.9;
+  /*background:#FF7700;*/
+  background: rgba(255, 119, 0, 0.9);
+  /*opacity:.9;*/
   width: 199px;
 }
 
@@ -105,18 +110,27 @@ nav#site-wrapper-main-menu ul.third-level {
 }
 
 nav#site-wrapper-main-menu li.item-1 ul.third-level {
-  background-color:#FFA300 !important;
+  /*background-color:#FFA300 !important;*/
+  background-color: rgba(250, 168, 48, 1);
 }
 
 nav#site-wrapper-main-menu ul.third-level {
   opacity:1;
-  background: #FF7700;
+  background: #FAA830 !important;
 }
 
 nav#site-wrapper-main-menu ul.third-level li a {
   opacity:1;
   font-size:.85em;
-  background: #FF7700;
+  /*display:none;*/
+  background: #FAA830;
+}
+nav#site-wrapper-main-menu li.item-1 ul.third-level {
+  opacity:1;
+  z-index:30000000;
+}
+nav#site-wrapper-main-menu li.item-1 ul.third-level li a:hover {
+  background: #FF7700 !important;
 }
 
 ul.dropdown-menu li a {
@@ -148,7 +162,8 @@ ul.dropdown-menu li a {
   #block-site-wrapper-site-wrapper-logo {
     margin-left:15px;
   }
-  nav#site-wrapper-main-menu ul.first-level li a {
+  nav#site-wrapper-main-menu ul.first-level li a,
+  nav#site-wrapper-main-menu ul.first-level li.item-1 > a {
     padding: 5px 20px 5px 10px;
     font-size: 1.5em;
     line-height: 1.5em;

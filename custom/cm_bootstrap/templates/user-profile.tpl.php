@@ -38,7 +38,7 @@ $account = $elements['#account'];
 <div class="profile"<?php print $attributes; ?>>
   <h1><?php echo $account->name ?></h1>
   <div class="row">
-    <div class="col-lg-3 col-md-3 col-xs-4 user-profile-left-col no-padding">
+    <div class="col-lg-3 col-md-3 col-xs-12 user-profile-left-col no-padding">
       <?php //dpm($account); ?>
       <?php 
         if (isset($account->picture->uri)) {
@@ -50,7 +50,7 @@ $account = $elements['#account'];
       ?>
       <img class="user-avatar-large" src="<?php print $user_img_src; ?>"/>
       <div class="user-details">
-        <div class="btn btn-default">      
+        <div class="btn btn-default">        
           <?php
           if ($account->uid === $user->uid) {
             echo "<a href='/user/{$user->uid}/edit'>Edit Profile</a>";
@@ -65,7 +65,7 @@ $account = $elements['#account'];
         <?php endif; ?>
       </div>
     </div>
-    <div class="col-lg-9 col-md-9 col-xs-8 user-profile-right-col">
+    <div class="col-lg-9 col-md-9 col-xs-12 user-profile-right-col">
       <?php $cf_user_statistics_blocks = module_invoke('community_features', 'block_view', 'cf_user_statistics'); ?>
       <?php //dpm($cf_user_statistics_blocks); ?>
       <?php print render($cf_user_statistics_blocks['content']); ?>

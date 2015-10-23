@@ -62,7 +62,6 @@
     
        
       <section<?php print $content_column_class; ?>>
-      <!--<section class="col-lg-9 col-md-8 col-sm-12">-->
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
@@ -90,7 +89,6 @@
       </section>
   
       <?php if (!empty($page['sidebar_second'])): ?>
-        <!--<aside class="col-lg-3 col-md-4 col-sm-12" role="complementary">-->
         <aside class="col-sm-3" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->

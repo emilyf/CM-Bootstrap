@@ -138,12 +138,10 @@ ul.user-shows-likes li a span.overlay .watch-now-mobile  {
 .user-profile-right-col {
   z-index:5;
 }
-.user-profile-right-col,
+
 .user-profile-third-col {
-  padding-left:60px;
-}
-.user-profile-left-col {
-  z-index:1000;
+  padding-left:0px;
+  margin-top:315px;
 }
 @media (max-width: 600px) { 
   .user-profile-left-col,
@@ -154,11 +152,11 @@ ul.user-shows-likes li a span.overlay .watch-now-mobile  {
     margin-bottom: 30px;
   }
 }
-@media (max-width: 996px) { 
+@media (min-width: 996px) { 
+  .user-profile-right-col,
   .user-profile-third-col {
-    padding-left:0px;
-    /*margin-top:315px;*/
-    margin-top:405px;
+    padding-left:60px;
+    margin-top:0px;
   }
   /*.user-statistics li a {
     width:80px;

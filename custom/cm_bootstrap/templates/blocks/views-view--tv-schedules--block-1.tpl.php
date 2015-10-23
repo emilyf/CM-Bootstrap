@@ -29,7 +29,7 @@
 ?>
 
 <div class="row">
-  <div class="next-on-left col-md-8 col-sm-8">
+  <div class="next-on-left col-md-7 col-sm-7">
     <h2>On RETN Channel 16</h2>
     <div class="<?php print $classes; ?>">
       <?php print render($title_prefix); ?>
@@ -94,7 +94,7 @@
     </div><?php /* class view */ ?>
   </div>
 
-  <div class="next-on-right col-md-4 col-sm-4">
+  <div class="next-on-right col-md-5 col-sm-5">
     <div class="row">
       <button type="submit" class="btn btn-default cover-my-event">Cover My Event</button>
     </div>

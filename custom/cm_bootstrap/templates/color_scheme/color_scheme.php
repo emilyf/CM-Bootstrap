@@ -457,3 +457,16 @@ ul.user-statistics {
 }
 <?php endif; ?>
 <?php // END: User Registration ?>
+
+<?php // START: Show/Series Main Content Colors ?>
+<?php if (isset($colors['show_main_content_bg_color'])): ?>
+.node-type-cm-show .main-container {
+  background-color:<?php print $colors['show_main_content_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php if (isset($colors['series_main_content_bg_color'])): ?>
+.node-type-cm-project .main-container {
+  background-color:<?php print $colors['series_main_content_bg_color']; ?> !important;
+}
+<?php endif; ?>
+<?php // END: Show/Series Main Content Colors ?>

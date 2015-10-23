@@ -1,6 +1,27 @@
+<style>
+  .default-image {
+    width:100%;
+    height:auto;
+  }
+</style>
+
 <?php //dpm($content); ?>
 
 <?php print render($content); ?>
+
+<?php if (!isset($content['field_show_vod'])): ?>
+  <?php 
+    if (module_exists('site_cp_default_images')) {
+      $file = site_cp_default_images_load_image($node->type);
+      //dpm($file);
+      $image_uri = $file->uri;
+      $default_image = image_style_url('site_cp_default_images_cm_show_video', $image_uri);
+    }
+  ?>
+  <div class="fluid-width-video-wrapper">
+    <img class="default-image" src="<?php print $default_image; ?>"/>
+  </div>
+<?php endif; ?>
 
 <?php
   // Series meta data

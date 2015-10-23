@@ -4,12 +4,12 @@
 <div class="row">
   <section class="col-md-12 no-padding top-section">
     <div class="row">
-      <div class="col-md-3 no-padding">
+      <div class="col-md-9 no-padding">
         <h1 class="page-header">
           <?php print $node->title; ?>
         </h1>
       </div>
-      <div class="col-md-9 no-padding">
+      <div class="col-md-3 no-padding">
         <div class="flag-container">
           <?php //print flag_create_link('cf_like_show', $node->nid); ?>
         </div>
