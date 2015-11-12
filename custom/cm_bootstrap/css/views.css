@@ -1,0 +1,53 @@
+.video-grid-view ul.video-grid-shows {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.video-grid-view ul.video-grid-shows li {
+  float: left;
+  padding: 10px 10px 5px 0;
+  width: 25%;
+}
+.video-grid-view ul.video-grid-shows li a {
+}
+.video-grid-view ul.video-grid-shows li a:hover {
+  color:#FFF;
+}
+.video-grid-view ul.video-grid-shows li a img {
+  width: 100%;
+  display: block;
+}
+.video-grid-view ul.video-grid-shows li a span.overlay {
+  height: 8em;
+  font-weight: 700;
+  position: relative;
+  bottom: 0;
+  background-color:#222222;
+  color: white;
+  opacity: 1;
+  padding: 10px;
+  display: block;
+}
+.video-grid-view ul.video-grid-shows li a span.overlay .title {
+  font-size:1em;
+}
+.video-grid-view ul.video-grid-shows li a span.overlay .series-title,
+.video-grid-view ul.video-grid-shows li a span.overlay .watch-now-mobile  {
+  font-size:.75em;
+}
+@media all and (max-width: 768px) {
+  .video-grid-view ul.video-grid-shows li {
+    width: 50%;
+  }
+}
+@media all and (max-width: 500px) {
+  .video-grid-view ul.video-grid-shows {
+    display: block;
+  }
+  .video-grid-view ul.video-grid-shows li {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: none;
+  }
+}

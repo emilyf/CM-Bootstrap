@@ -42,6 +42,8 @@ stylesheets[all][] = css/cb_video_grid.css
 stylesheets[all][] = css/node_show.css
 stylesheets[all][] = css/community_features.css
 stylesheets[all][] = css/taxonomy_terms.css
+stylesheets[all][] = css/views.css
+;stylesheets[all][] = css/custom.css
 ;stylesheets[all][] = less/style.less
 
 ;;;;;;;;;;;;;;;;;;;;;
