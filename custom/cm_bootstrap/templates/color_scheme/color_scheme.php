@@ -159,10 +159,10 @@ if (module_exists('site_cp')) {
 
 <?php
 // START: Video Slider 
-$ones = [];
-$twos = [];
-$threes = [];
-$fours = [];
+$ones = array();
+$twos = array();
+$threes = array();
+$fours = array();
 // 100 is the limit for number of videos to display
 for ($i = 1; $i <= 100; $i++) {
   // for 1,5,9,13...
